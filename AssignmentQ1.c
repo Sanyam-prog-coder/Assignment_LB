@@ -1,59 +1,33 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
-
-///////////////////////////////////////////////////////////////
-//
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
+///////////////////////////////////////////////////////////
+// Function Name :  Display
+// Description :    Accept a no. from User and Print *
 // Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
-
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+// Date :           27/10/2025
+///////////////////////////////////////////////////////////
+void Display(int iNo)
 {
-    int iAns = 0;           // To Store the Result
+    int iCnt = 0;
 
-    if(iNo2 == 0)           // Updater
+    while(iCnt < iNo)
     {
-        return -1;
+        printf("*");
+        iCnt++;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iValue = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter number : ");
+    scanf("%d", &iValue);
 
-    printf("Divison is %d",iRet);
+    Display(iValue);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
-//
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+}
+///////////////////////////////////////////////////////////
+// Input : 8    Output : ********
+// Input : 4    Output : ****
+///////////////////////////////////////////////////////////

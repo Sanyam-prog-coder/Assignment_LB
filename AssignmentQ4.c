@@ -1,50 +1,45 @@
 #include<stdio.h>
-#include<stdbool.h>
-
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
+///////////////////////////////////////////////////////////
+// Function Name :  Display
+// Description :    accept two number from user and display 
+//                  first number second number times
 // Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+// Date :           27/10/2025
+///////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+void Display(int iNo, int iFrequency)
 {
-    if((iNo % 5) == 0)
+    int iCnt = 0;
+
+    if (iFrequency < 0)
     {
-        return true;
+        iFrequency = -iFrequency;
     }
-    else
+
+    for (iCnt = 1; iCnt <= iFrequency; iCnt++)
     {
-        return false;
+        printf("%d ", iNo);
     }
+
+    printf("\n");
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iValue = 0, iCount = 0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter first number : ");
+    scanf("%d", &iValue);
 
-    bRet = Check(iValue);
+    printf("Enter second number : ");
+    scanf("%d", &iCount);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    Display(iValue, iCount);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+// Input : 12   Input : 2   Output : 12 12
+// Input : -7   Input : 2   Output : -7 -7
+// Input : -12  Input : -2  Output : -12 -12
+///////////////////////////////////////////////////////////

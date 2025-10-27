@@ -1,23 +1,31 @@
 #include<stdio.h>
-
 ///////////////////////////////////////////////////////////
 // Function Name :  Display
-// Description :    print Marvellous Five Times 
+// Description :    Accept a no. from User and Print *
 // Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
+// Date :           27/10/2025
 ///////////////////////////////////////////////////////////
-
-void Display()
+void Display(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    
+    while (iNo > 0)
     {
-        printf("Marvellous\n");
+        printf("*");
+        iNo--;
     }
 }
 int main()
 {
-    Display();
+    int iValue = 0;
+
+    printf("Enter number : ");
+    scanf("%d",&iValue);
+
+    Display(iValue);
 
     return 0;
 }
+///////////////////////////////////////////////////////////
+// Input : 4    Output : ****
+// Input : 7    Output : *******
+///////////////////////////////////////////////////////////   

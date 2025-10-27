@@ -1,26 +1,50 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+// Function Name :  CheckEven
+// Description :    Accept no. from user and Check number 
+//                  is Even or Odd
+// Auther :         Sanyam BhupendraKumar Ravne
+// Date :           27/10/2025
+////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+bool CheckEven(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    if (iNo % 2 == 0)
     {
-        printf("*\t\n");
+        return true;   
+    }
+    else
+    {
+        return false;  
     }
 }
+
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    bool bRet = false;
 
-    Accept(iValue);
+    printf("Enter number : ");
+    scanf("%d", &iValue);
+
+    bRet = CheckEven(iValue);
+
+    if (bRet == true)
+    {
+        printf("Number is Even\n");
+    }
+    else
+    {
+        printf("Number is Odd\n");
+    }
+
     return 0;
 }
+////////////////////////////////////////////////////////////
+// Input : 12   Output : Even
+// Input : 15   Output : Odd
+// Input : -17   Output : Odd
+// Input : -18  Output : Even
+////////////////////////////////////////////////////////////
