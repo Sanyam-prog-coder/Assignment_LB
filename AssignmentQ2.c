@@ -1,23 +1,47 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Function     : ChechGreater
+// Description  : Accept one No. and check that No. is grater or not
+// Auther       : Sanyam BhupendraKumar Ravne 
+// Date         : 30/10/2025
+/////////////////////////////////////////////////////////////////////////
 
-void Display()
+bool CheckGreater(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    if(iNo > 100)
     {
-        printf("Marvellous\n");
+        return false ;
+    }
+    else
+    {
+        return true;
     }
 }
+
 int main()
 {
-    Display();
+    int iValue = 0;
+    bool bRet = false;
 
+    printf("Please Enter Number : ");
+    scanf("%d",&iValue);
+
+    bRet = CheckGreater(iValue);
+
+    if(bRet == false)
+    {
+        printf("Greter...");
+    }
+    else
+    {
+        printf("Smaller...");
+    }
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+// Input : 101  Output : Greater
+// Input : 50   Output : Smaller
+// Input : 100  Output : Smaller
+/////////////////////////////////////////////////////////////////////////

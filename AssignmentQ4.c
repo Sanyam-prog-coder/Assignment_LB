@@ -1,50 +1,60 @@
-#include<stdio.h>
-#include<stdbool.h>
+#include <stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Function     : Multiply
+// Description  : Accept Three No. and print its Multiplication
+// Auther       : Sanyam BhupendraKumar Ravne 
+// Date         : 30/10/2025
+/////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int Multiply(int iNo1, int iNo2, int iNo3)
 {
-    if((iNo % 5) == 0)
+    int iAns = 1;
+
+    if(iNo1 == 0 && iNo2 == 0 && iNo3 == 0)
     {
-        return true;
+        return 0;
     }
-    else
+
+    if(iNo1 != 0)
     {
-        return false;
+        iAns = iAns * iNo1;
     }
+
+    if(iNo2 != 0)
+    {
+        iAns = iAns * iNo2;
+    }
+
+    if(iNo3 != 0)
+    {
+        iAns = iAns * iNo3;
+    }
+
+    return iAns;
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iValue1 = 0, iValue2 = 0, iValue3 = 0, iRet = 0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Please Enter First Numbers: ");
+    scanf("%d", &iValue1);
 
-    bRet = Check(iValue);
+    printf("Please Enter Second Numbers: ");
+    scanf("%d", &iValue2);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("Please Enter Third Numbers: ");
+    scanf("%d", &iValue3);
+
+    iRet = Multiply(iValue1, iValue2, iValue3);
+
+    printf("Multiplication is: %d\n", iRet);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Input : 5 Input : 6 Input : 8    Output : 240
+// Input : 8 Input : 6 Input : 0    Output : 48
+// Input : 0 Input : 0 Input : 0    Output : 0
+/////////////////////////////////////////////////////////////////////////

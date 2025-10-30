@@ -1,26 +1,46 @@
-#include<stdio.h>
+#include <stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Function     : Percentage
+// Description  : To Calculate Percentage 
+// Auther       : Sanyam BhupendraKumar Ravne 
+// Date         : 30/10/2025
+/////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+float Percentage(int iTotal1, int iTotal2)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    float fPercent = 0.0;
+
+    if(iTotal1 == 0)
     {
-        printf("*\t\n");
+        printf("Total marks cannot be zero.\n");
+        return 0.0;
     }
+
+    fPercent = ((float)iTotal2 / (float)iTotal1) * 100;
+
+    return fPercent;
 }
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    int iValue1 = 0, iValue2 = 0; 
+    float fRet = 0.0;
 
-    Accept(iValue);
+    printf("Please enter total marks: ");
+    scanf("%d", &iValue1);
+
+    printf("Please enter obtained marks: ");
+    scanf("%d", &iValue2);
+
+    fRet = Percentage(iValue1, iValue2);
+
+    printf("Percentage is: %.2f%%\n", fRet);
+
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+// Input : 600  Input : 423     Output : 70.50%
+// Input : 600  Input : 00      Output : 0.0%
+// Input : 600  Input : 35      Output : 5.83%
+/////////////////////////////////////////////////////////////////////////
