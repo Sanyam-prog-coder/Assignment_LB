@@ -1,24 +1,43 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+// Function     : Factorial
+// Description  : Complexity Calculation Factorial of number
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/2025
+////////////////////////////////////////////////////////////////
 
-void Display()
+int Factorial(int iNo)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    int icnt = 0;
+    int iFrequncy = 1;
+
+    if(iNo < 0)
     {
-        printf("%d\n",icnt);
-        icnt--;
+        iNo = -iNo;
     }
+
+    for(icnt = 1; icnt<= iNo ; icnt++)
+    {
+        iFrequncy = iFrequncy * icnt;
+    }
+    return iFrequncy;
 }
 int main()
 {
-    Display();
+    int iValue = 0;
+    int iRet = 0;
+
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
+
+    iRet = Factorial(iValue);
+
+    printf("Factorial of Number is %d",iRet);
 
     return 0;
 }
+////////////////////////////////////////////////////////////////
+// Input : 5    Output : 120
+// Input : -4   Output : 24
+////////////////////////////////////////////////////////////////

@@ -1,23 +1,74 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+// Function     : SisplayDigit
+// Description  : Complexity Calculation into Word
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/2025
+////////////////////////////////////////////////////////////////
 
-void Display()
+void DisplayDigit(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    if(iNo < 0)
     {
-        printf("Marvellous\n");
+        iNo = -iNo;
     }
+    if(iNo > 9)
+    {
+        printf("Invalid Number\n");
+        return;
+    }
+
+    switch (iNo)
+    {
+        case 0: printf("Zero\n");
+        break;
+
+        case 1: printf("One\n");
+        break;
+
+        case 2: printf("Two\n");
+        break;
+
+        case 3: printf("Three\n");
+        break;
+
+        case 4: printf("Four\n");
+        break;
+
+        case 5: printf("Five\n");
+        break;
+
+        case 6: printf("Six\n");
+        break;
+
+        case 7: printf("Seven\n");
+        break;
+
+        case 8: printf("Eight\n");
+        break;
+
+        case 9: printf("Nine\n");
+        break;
+
+        default : printf("Invalid Number\n");
+        break;
+    }
+
 }
 int main()
 {
-    Display();
+    int iValue = 0;
+
+    printf("Enter Number :");
+    scanf("%d",&iValue);
+
+    DisplayDigit(iValue);
 
     return 0;
 }
+////////////////////////////////////////////////////////////////
+// Input : 6    Output : Six
+// Input : -3   Output : Three
+// Input : 18   Output : Invalid Number
+////////////////////////////////////////////////////////////////

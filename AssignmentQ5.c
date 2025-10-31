@@ -1,26 +1,41 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Function     : TableRev
+// Description  : Complexity Calculation Display Table from User
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/2025
+/////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void TableRev(int iNo)
 {
     int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+
+    if(iNo < 0)
     {
-        printf("*\t\n");
+        iNo = -iNo;
+    }
+    for(icnt = 10; icnt >= 1; icnt--)
+    {
+        printf("%d\t",iNo * icnt);
     }
 }
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
+
+    printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    Accept(iValue);
+    TableRev(iValue);
+
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+// Input    : 8
+// Output   : 80 72 64 56 48 40 32 24 16 8
+// Input    : -8
+// Output   : 80 72 64 56 48 40 32 24 16 8
+// Input    : 5
+// Output   : 50 45 40 35 30 25 20 15 10 5
+/////////////////////////////////////////////////////////////////////////

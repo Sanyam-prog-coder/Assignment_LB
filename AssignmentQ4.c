@@ -1,50 +1,41 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Function     : Table
+// Description  : Complexity Calculation Display Table from User
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/2025
+/////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+void Table(int iNo)
 {
-    if((iNo % 5) == 0)
+    int icnt = 0;
+
+    if(iNo < 0)
     {
-        return true;
+        iNo = -iNo;
     }
-    else
+    for(icnt = 1; icnt <= 10; icnt++)
     {
-        return false;
+        printf("%d\t",iNo * icnt);
     }
 }
-
 int main()
 {
     int iValue = 0;
-    bool bRet = false;
 
-    printf("Enter number :");
+    printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    Table(iValue);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Input    : 8
+// Output   : 8 16  24  32  40  48  56  84  72  80
+// Input    : -8
+// Output   : 8 16  24  32  40  48  56  84  72  80
+// Input    : 6
+// Output   : 6 12  18  24  30  36  42  48  54  60
+/////////////////////////////////////////////////////////////////////////

@@ -1,59 +1,41 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
-//
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+// Function     : Number
+// Description  : Complexity Calculation
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/2025
+////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void Number(int iNo)
 {
-    int iAns = 0;           // To Store the Result
-
-    if(iNo2 == 0)           // Updater
+    if (iNo < 50)
     {
-        return -1;
+        printf("Smaller\n");
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
-
+    else if(iNo >= 50 && iNo <= 100)
+    {
+        printf("Medium\n");
+    }
+    else
+    {
+        printf("Larger\n");
+    }
+}
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iValue = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter Number:");
+    scanf("%d",&iValue);
 
-    printf("Divison is %d",iRet);
+    Number(iValue);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
-//
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////
+// Input : 45       Output : Smaller
+// Input : 69       Output : Medium
+// Input : 108      Output : Larger
+// Input : -45      Output : Smaller
+//////////////////////////////////////////////////////////////// 
