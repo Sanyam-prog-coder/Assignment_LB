@@ -1,24 +1,33 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+// Function     : Display
+// Description  : Accept No. from user & print its No. line
+// Auther       : Sanyam Bhupendrakumar Ravne
+// Date         : 31/10/2025
+///////////////////////////////////////////////////////////////
 
-void Display()
+void Dispaly(int iNo)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    int icnt = 0;
+
+    for(icnt = -iNo; icnt <= iNo; icnt++)
     {
-        printf("%d\n",icnt);
-        icnt--;
+        printf("%d\t",icnt);
     }
 }
 int main()
 {
-    Display();
+    int iValue = 0;
+
+    printf("Enter Number :");
+    scanf("%d",&iValue);
+
+    Dispaly(iValue);
 
     return 0;
 }
+///////////////////////////////////////////////////////////////
+// Input : 3    Output : -3 -2 -1 0 1 2 3
+// Input : 5    Output : -5 -4 -3 -2 -1 0 1 2 3 4 5
+///////////////////////////////////////////////////////////////

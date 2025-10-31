@@ -1,26 +1,33 @@
-#include<stdio.h>
+#include <stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+// Function     : MultipleDisplay
+// Description  : Accept N and print first 5 Multiples of N
+// Auther       : Sanyam Bhupendrakumar Ravne
+// Date         : 31/10/2025
+/////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void MultipleDisplay(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int iCnt = 0;
+
+    for(iCnt = 1; iCnt <= 5; iCnt++)
     {
-        printf("*\t\n");
+        printf("%d\t",iCnt * iNo );
     }
 }
+
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
 
-    Accept(iValue);
+    printf("Enter number: ");
+    scanf("%d", &iValue);
+
+    MultipleDisplay(iValue);
+
     return 0;
 }
+/////////////////////////////////////////////////////////////////////
+// Input : 4    Output : 4 8 12 16 20
+/////////////////////////////////////////////////////////////////////

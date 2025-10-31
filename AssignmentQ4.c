@@ -1,50 +1,37 @@
-#include<stdio.h>
-#include<stdbool.h>
+#include <stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+// Function     : OddDisplay
+// Description  : Accept N from user & print all Odd No. upto N
+// Auther       : Sanyam Bhupendrakumar Ravne
+// Date         : 31/10/2025
+/////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+
+void OddDisplay(int iNo)
 {
-    if((iNo % 5) == 0)
+    int iCnt = 0;
+
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        return true;
-    }
-    else
-    {
-        return false;
+        if(iCnt % 2 != 0)
+        {
+            printf("%d\t", iCnt);
+        }
     }
 }
 
 int main()
 {
     int iValue = 0;
-    bool bRet = false;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter number: ");
+    scanf("%d", &iValue);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    OddDisplay(iValue);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+// Input : 6    Output : 1 3 5
+/////////////////////////////////////////////////////////////////////
