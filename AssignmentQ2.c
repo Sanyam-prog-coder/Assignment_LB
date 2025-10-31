@@ -1,74 +1,35 @@
 #include<stdio.h>
 
-////////////////////////////////////////////////////////////////
-// Function     : SisplayDigit
-// Description  : Complexity Calculation into Word
+//////////////////////////////////////////////////////////////////
+// Function     : DollerToINR
+// Description  : convert USD into INR
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 31/10/2025
-////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-void DisplayDigit(int iNo)
+int DollarToINR(int iNo)
 {
-    if(iNo < 0)
-    {
-        iNo = -iNo;
-    }
-    if(iNo > 9)
-    {
-        printf("Invalid Number\n");
-        return;
-    }
+    int iINR = 0;
 
-    switch (iNo)
-    {
-        case 0: printf("Zero\n");
-        break;
+    iINR = iNo * 88;
 
-        case 1: printf("One\n");
-        break;
-
-        case 2: printf("Two\n");
-        break;
-
-        case 3: printf("Three\n");
-        break;
-
-        case 4: printf("Four\n");
-        break;
-
-        case 5: printf("Five\n");
-        break;
-
-        case 6: printf("Six\n");
-        break;
-
-        case 7: printf("Seven\n");
-        break;
-
-        case 8: printf("Eight\n");
-        break;
-
-        case 9: printf("Nine\n");
-        break;
-
-        default : printf("Invalid Number\n");
-        break;
-    }
-
+    return iINR;
 }
+
 int main()
 {
-    int iValue = 0;
+    int iValue = 0, iRet = 0;
 
-    printf("Enter Number :");
-    scanf("%d",&iValue);
+    printf("Enter number of USD $: ");
+    scanf("%d", &iValue);
 
-    DisplayDigit(iValue);
+    iRet = DollarToINR(iValue);
+
+    printf("Value in INR %d\n", iRet);
 
     return 0;
 }
-////////////////////////////////////////////////////////////////
-// Input : 6    Output : Six
-// Input : -3   Output : Three
-// Input : 18   Output : Invalid Number
-////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+// Input : $90      Output : 7920
+// Input : $ 1      Output : 88
+//////////////////////////////////////////////////////////////////

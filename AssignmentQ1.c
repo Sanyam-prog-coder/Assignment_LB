@@ -1,41 +1,42 @@
 #include<stdio.h>
 
-////////////////////////////////////////////////////////////////
-// Function     : Number
-// Description  : Complexity Calculation
+//////////////////////////////////////////////////////////////////
+// Function     : Display
+// Description  : Cal Complexity Display Pattern
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 31/10/2025
-////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-void Number(int iNo)
+void Display(int iNo)
 {
-    if (iNo < 50)
+    int icnt = 0;
+
+    if(iNo < 0)
     {
-        printf("Smaller\n");
+        iNo = -iNo;
     }
-    else if(iNo >= 50 && iNo <= 100)
+
+    for(icnt = 1; icnt <= iNo; icnt++)
     {
-        printf("Medium\n");
+        printf("*\t");
     }
-    else
+
+    for(icnt = 1; icnt <= iNo; icnt++)
     {
-        printf("Larger\n");
+        printf("#\t");
     }
 }
 int main()
 {
     int iValue = 0;
 
-    printf("Enter Number:");
+    printf("Enter Number :");
     scanf("%d",&iValue);
 
-    Number(iValue);
+    Display(iValue);
 
     return 0;
 }
-////////////////////////////////////////////////////////////////
-// Input : 45       Output : Smaller
-// Input : 69       Output : Medium
-// Input : 108      Output : Larger
-// Input : -45      Output : Smaller
-//////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////
+// Input : 5    Output : * * * * * # # # # #
+//////////////////////////////////////////////////////////////////

@@ -1,41 +1,43 @@
 #include<stdio.h>
 
-/////////////////////////////////////////////////////////////////////////
-// Function     : Table
-// Description  : Complexity Calculation Display Table from User
+//////////////////////////////////////////////////////////////////
+// Function     : OddFactorial
+// Description  : To find Odd Factorial of No.
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 31/10/2025
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-void Table(int iNo)
+int OddFactorial(int iNo)
 {
     int icnt = 0;
+    int iFrequancy = 1;
 
     if(iNo < 0)
     {
         iNo = -iNo;
     }
-    for(icnt = 1; icnt <= 10; icnt++)
+
+    for(icnt = 1; icnt <= iNo; icnt += 2)
     {
-        printf("%d\t",iNo * icnt);
+        iFrequancy = iFrequancy * icnt;
     }
+    return iFrequancy;
 }
 int main()
 {
-    int iValue = 0;
+    int iValue = 0, iRet = 0;
 
     printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    Table(iValue);
+    iRet = OddFactorial(iValue);
+
+    printf("Even Factorial of Number is %d\n",iRet);
 
     return 0;
 }
-/////////////////////////////////////////////////////////////////////////
-// Input    : 8
-// Output   : 8 16  24  32  40  48  56  84  72  80
-// Input    : -8
-// Output   : 8 16  24  32  40  48  56  84  72  80
-// Input    : 6
-// Output   : 6 12  18  24  30  36  42  48  54  60
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+// Input : 5    Output : 15
+// Input : -5   Output : 15
+// Input : 10   Output : 945
+//////////////////////////////////////////////////////////////////

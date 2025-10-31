@@ -1,41 +1,53 @@
 #include<stdio.h>
 
-/////////////////////////////////////////////////////////////////////////
-// Function     : TableRev
-// Description  : Complexity Calculation Display Table from User
+//////////////////////////////////////////////////////////////////
+// Function     : FactorialDiff
+// Description  : Diff betn Even & Odd factorial
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 31/10/2025
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-void TableRev(int iNo)
+int FactorialDiff(int iNo)
 {
     int icnt = 0;
+    int iEvenFact = 1;
+    int iOddFact = 1;
+    int iDiff = 0;
 
     if(iNo < 0)
     {
         iNo = -iNo;
     }
-    for(icnt = 10; icnt >= 1; icnt--)
+
+    for(icnt = 1; icnt <= iNo; icnt ++)
     {
-        printf("%d\t",iNo * icnt);
+        if(icnt % 2 == 0)
+        {
+            iEvenFact = iEvenFact * icnt;
+        }
+        else
+        {
+            iOddFact = iOddFact * icnt;
+        }
     }
+    iDiff = iEvenFact - iOddFact;
+
+    return iDiff;
 }
 int main()
 {
-    int iValue = 0;
+    int iValue = 0, iRet = 0;
 
     printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    TableRev(iValue);
+    iRet = FactorialDiff(iValue);
+
+    printf("Factorial Diffrence is %d",iRet);
 
     return 0;
 }
-/////////////////////////////////////////////////////////////////////////
-// Input    : 8
-// Output   : 80 72 64 56 48 40 32 24 16 8
-// Input    : -8
-// Output   : 80 72 64 56 48 40 32 24 16 8
-// Input    : 5
-// Output   : 50 45 40 35 30 25 20 15 10 5
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+// Input : 5    Output : -7
+// Input : 10   Output : 2895
+//////////////////////////////////////////////////////////////////

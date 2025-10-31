@@ -1,43 +1,43 @@
 #include<stdio.h>
 
-////////////////////////////////////////////////////////////////
-// Function     : Factorial
-// Description  : Complexity Calculation Factorial of number
+//////////////////////////////////////////////////////////////////
+// Function     : EvenFactorial
+// Description  : To find Even Factorial of No.
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 31/10/2025
-////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-int Factorial(int iNo)
+int EvenFactorial(int iNo)
 {
     int icnt = 0;
-    int iFrequncy = 1;
+    int iFrequancy = 1;
 
     if(iNo < 0)
     {
         iNo = -iNo;
     }
 
-    for(icnt = 1; icnt<= iNo ; icnt++)
+    for(icnt = 2; icnt <= iNo; icnt += 2)
     {
-        iFrequncy = iFrequncy * icnt;
+        iFrequancy = iFrequancy * icnt;
     }
-    return iFrequncy;
+    return iFrequancy;
 }
 int main()
 {
-    int iValue = 0;
-    int iRet = 0;
+    int iValue = 0, iRet = 0;
 
     printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    iRet = Factorial(iValue);
+    iRet = EvenFactorial(iValue);
 
-    printf("Factorial of Number is %d",iRet);
+    printf("Even Factorial of Number is %d\n",iRet);
 
     return 0;
 }
-////////////////////////////////////////////////////////////////
-// Input : 5    Output : 120
-// Input : -4   Output : 24
-////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+// Input : 5    Output : 8
+// Input : -5   Output : 8
+// Input : 10   Output : 3840
+//////////////////////////////////////////////////////////////////
