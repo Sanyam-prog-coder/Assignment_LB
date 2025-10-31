@@ -1,59 +1,41 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
 ///////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
+// Function     : CircleArea
+// Description  : Accept No. from user & Cal its Area
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/20252
+//
 ///////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+double CircleArea(float fRadius)
 {
-    int iAns = 0;           // To Store the Result
+    double dArea = 0.0;
+    const float PI = 3.14;
 
-    if(iNo2 == 0)           // Updater
-    {
-        return -1;
-    }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
+    dArea = PI * fRadius * fRadius;
 
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    return dArea;
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    float fValue = 0.0;
+    double dRet = 0.0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter Radius :");
+    scanf("%f",&fValue);
 
-    printf("Divison is %d",iRet);
+    dRet = CircleArea(fValue);
+
+    printf("Circle Area is %f\n",dRet);
 
     return 0;
-}   // End of Main
-
+}
 ///////////////////////////////////////////////////////////////
 //
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
+// Input : 5.5      Output : 94.9850
+// Input : 10.4     Output : 339.6223
 //
 ///////////////////////////////////////////////////////////////

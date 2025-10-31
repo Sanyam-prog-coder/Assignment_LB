@@ -1,26 +1,41 @@
 #include<stdio.h>
 
 ///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//
+// Function     : SquareMeter
+// Description  : Accept area in sqft & convert into sqmeter
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/2002
+//
+///////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+double SquareMeter(int iValue)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
-    {
-        printf("*\t\n");
-    }
+    double dSquareMeter = 0.0;
+    const double SQUARE_METER_VALUE = 0.0929;
+
+    dSquareMeter = iValue * SQUARE_METER_VALUE;
+
+    return dSquareMeter;
 }
+
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
+    double dRet = 0.0;
+
+    printf("Enter Area in Square Feet :");
     scanf("%d",&iValue);
 
-    Accept(iValue);
+    dRet = SquareMeter(iValue);
+
+    printf("Area in Square in Meter : %.6lf\n",dRet);
+
     return 0;
 }
+///////////////////////////////////////////////////////////////////////
+//
+// Input : 5    Output : 0.464500
+// Input : 10   Output : 0.929000
+//
+///////////////////////////////////////////////////////////////////////

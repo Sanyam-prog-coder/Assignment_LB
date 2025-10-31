@@ -1,23 +1,42 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+//
+// Function     : ReactArea
+// Description  : Accept Width & Height from user and Cal Area
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/20252
+//
+///////////////////////////////////////////////////////////////
 
-void Display()
+double ReactArea(float fWidth, float fHeight)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
-    {
-        printf("Marvellous\n");
-    }
+    double dArea = 0.0;
+
+    dArea = fWidth * fHeight;
+
+    return dArea;
 }
+
 int main()
 {
-    Display();
+    float fValue1 = 0.0, fValue2 = 0.0;
+    double dRet = 0.0;
+
+    printf("Enter Width :");
+    scanf("%f",&fValue1);
+
+    printf("Enter Height :");
+    scanf("%f",&fValue2);
+
+    dRet = ReactArea(fValue1, fValue2);
+
+    printf("Rectangle Area is :%f",dRet);
 
     return 0;
 }
+///////////////////////////////////////////////////////////////
+//
+// Input : 5.3  Input : 9.78    Output : 51.8340
+//
+///////////////////////////////////////////////////////////////

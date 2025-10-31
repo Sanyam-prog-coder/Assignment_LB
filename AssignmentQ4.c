@@ -1,50 +1,40 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+//
+// Function     : FHtoCs
+// Description  : Accept Temp in Fh & convert into Celcius
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/20252
+//
+///////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+double FhtoCs(float fTemp)
 {
-    if((iNo % 5) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    double dCelsius = 0.0;
+
+    dCelsius = (fTemp - 32) * (5.0 / 9.0);
+
+    return dCelsius;
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    float fValue = 0.0;
+    double dRet = 0.0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter Temprature in Fahrenheit :");
+    scanf("%f",&fValue);
 
-    bRet = Check(iValue);
+    dRet = FhtoCs(fValue);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("Temprature in Celcius : %.5lf\n",dRet);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 10      Output : 
+// Input : 34      Output : 
 //
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////

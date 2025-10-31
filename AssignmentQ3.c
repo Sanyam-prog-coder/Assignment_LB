@@ -1,24 +1,38 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+//
+// Function     : KMtoMeter
+// Description  : Accept Distance in Km % convert inti Meter
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 31/10/20252
+//
+///////////////////////////////////////////////////////////////
 
-void Display()
+int KMtoMeter(int iNo)
 {
-    int icnt = 5;
-    while(icnt >= 1)
-    {
-        printf("%d\n",icnt);
-        icnt--;
-    }
+     int iMeter = 0;
+
+    iMeter = iNo * 1000;
+
+    return iMeter;
 }
+
 int main()
 {
-    Display();
+    int iValue = 0, iRet = 0;
+
+    printf("Enter Distance :");
+    scanf("%d",&iValue);
+
+    iRet = KMtoMeter(iValue);
+
+    printf("Distance is meter/HR :%d",iRet);
 
     return 0;
 }
+///////////////////////////////////////////////////////////////
+//
+// Input : 5    Output : 5000
+//
+///////////////////////////////////////////////////////////////
