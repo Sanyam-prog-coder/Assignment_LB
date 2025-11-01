@@ -1,50 +1,51 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+//
+//  Function    : RangeSumEvent
+//  Description : Accept No. from User & return Addition of all Even No. Betwn Range
+//  Auther      : Sanyam BhupendraKumar Ravne
+//  Date        : 01/11/2025
+//
+/////////////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int RangeSumEvent(int iStart, int iEnd)
 {
-    if((iNo % 5) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
+    int iSum = 0;
 
+    if(iStart > iEnd || iStart < 0 || iEnd < 0)
+    {
+        printf("Invalid Range ");
+        return 0;
+    }
+
+    for(int i = iStart; i <= iEnd; i++)
+    {
+        if(i % 2 == 0)
+
+        iSum = iSum + i;
+    }
+    return iSum;
+}
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iValue1 = 0, iValue2 = 0, iRet = 0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter Starting point : ");
+    scanf("%d",&iValue1);
 
-    bRet = Check(iValue);
+    printf("Enter Ending point : ");
+    scanf("%d",&iValue2);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    iRet = RangeSumEvent(iValue1, iValue2);
+
+    printf("Addition is %d",iRet);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 25   Input : 35  Output : 150
+// Input : 90   Input : 2   Output : Invalid Range Addition
 //
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////

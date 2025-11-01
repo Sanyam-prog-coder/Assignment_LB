@@ -1,26 +1,46 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Function    : RangeDisplayRev
+//  Description : Accept No. from User & Display all No. in Reverce order betwn Range
+//  Auther      : Sanyam BhupendraKumar Ravne
+//  Date        : 01/11/2025
+//
+///////////////////////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+
+void RangeDisplayRev(int iStart, int iEnd)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    if(iStart > iEnd)
     {
-        printf("*\t\n");
+        printf("Invalid Range...");
+        return;
     }
+    for(int i = iEnd; i >= iStart; i--)
+    {
+        printf("%d ", i);
+    }
+    printf("\n");
 }
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    int iValue1 = 0, iValue2 = 0;
 
-    Accept(iValue);
+    printf("Enter Starting Point : ");
+    scanf("%d",&iValue1);
+
+    printf("Enter Ending Point : ");
+    scanf("%d",&iValue2);
+
+    RangeDisplayRev(iValue1, iValue2);
+
     return 0;
 }
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Input : 25  Input : 35  Output : 35 34 33 32 31 30 29 28 27 26 25
+//  Input : 90  Input : 10  Output : Invalid Range
+//  Input : -5  Input : 2   Output : 2 1 0 -1 -2 -3 -4 -5
+//
+///////////////////////////////////////////////////////////////////////////////////////////
