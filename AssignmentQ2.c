@@ -1,23 +1,40 @@
-#include<stdio.h>
+#include <stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+// Function     : print_even_number
+// Description  : print all Even Number upto N
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+/////////////////////////////////////////////////////////////////////////
 
-void Display()
+void print_even_numbers(int limit)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    int i;
+
+    for(i = 1; i <= limit; i++)
     {
-        printf("Marvellous\n");
+        if(i % 2 == 0)
+        {
+            printf("%d ", i);
+        }
     }
+    printf("\n");
 }
+
 int main()
 {
-    Display();
+    int limit;
 
+    printf("Enter number : ");
+    scanf("%d", &limit);
+
+    print_even_numbers(limit);
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+// 
+// Input : 12   Output : 2 4 6 8 10 12
+//
+/////////////////////////////////////////////////////////////////////////

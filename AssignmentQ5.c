@@ -1,26 +1,40 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+// Function     : Sum_Even_number
+// Description  : Find Sum of First N Even Number
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+/////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+int Sum_Even_number(int limit)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int i, Sum = 0;
+
+    for(i = 1; i <= limit; i++)
     {
-        printf("*\t\n");
+        if(i % 2 == 0)
+        {
+            Sum = Sum + i;
+        }
     }
+    return Sum;
 }
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    int limit;
 
-    Accept(iValue);
+    printf("Enter number : ");
+    scanf("%d",&limit);
+
+    printf("%d\n", Sum_Even_number(limit));
+
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+//
+// Input : 5    Output : 6
+//
+/////////////////////////////////////////////////////////////////////////

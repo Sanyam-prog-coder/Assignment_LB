@@ -1,50 +1,37 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+// Function     : Sum_natural_number
+// Description  : Find Sum of First N natural Number
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+/////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int Sum_natural_number(int limit)
 {
-    if((iNo % 5) == 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
+    int i, Sum = 0;
 
+    for(i = 1; i <= limit; i++)
+    {
+        Sum = Sum + i;
+    }
+    return Sum;
+}
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int limit;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter number : ");
+    scanf("%d",&limit);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("%d\n", Sum_natural_number(limit));
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 5    Output : 15
 //
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////

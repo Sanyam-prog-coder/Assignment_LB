@@ -1,59 +1,37 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : Print_number
+// Description  : print all Number From 1 to N
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+//////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void Print_number(int limit)
 {
-    int iAns = 0;           // To Store the Result
+    int iCnt = 0;
 
-    if(iNo2 == 0)           // Updater
+    for(iCnt = 1; iCnt <= limit; iCnt++)
     {
-        return -1;
+        printf("%d\t", iCnt);
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int limit;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter number :");
+    scanf("%d",&limit);
 
-    printf("Divison is %d",iRet);
+    Print_number(limit);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+//////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 12   Output : 1 2 3 4 5 6 7 8 9 10 11 12
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
