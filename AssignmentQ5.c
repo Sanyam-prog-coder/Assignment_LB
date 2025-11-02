@@ -1,26 +1,41 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : is_Divisible_by_Five
+// Description  : Check if number is Divisible by 5
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+bool is_Divisible_by_Five(int number)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    if(number % 5 == 0)
     {
-        printf("*\t\n");
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    int number;
 
-    Accept(iValue);
+    printf("Enter number : ");
+    scanf("%d",&number);
+
+    printf("%s\n", is_Divisible_by_Five(number) ? "Yes" : "No");
+
     return 0;
 }
+//////////////////////////////////////////////////////////////////////////////////////
+//
+// Input : 25   OUtput : YES
+// Input : 12   OUtput : NO
+//
+//////////////////////////////////////////////////////////////////////////////////////

@@ -1,23 +1,42 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//
+// Function     : Count_Factors
+// Description  : Count total factors of a Number
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+//////////////////////////////////////////////////////////////////////////
 
-void Display()
+int Count_Factors(int number)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    int i = 0, Count = 0;
+
+    for (int i = 1; i <= number; i++)
     {
-        printf("Marvellous\n");
+        if (number % i == 0)
+        {
+            Count++;
+        }
     }
+    return Count;
 }
+
 int main()
 {
-    Display();
+    int number;
+
+    printf("Enter Number : ");
+    scanf("%d",&number);
+
+    printf("%d\n",Count_Factors(number));
 
     return 0;
 }
+//////////////////////////////////////////////////////////////////////////
+// 
+// Input : 15   Output : 4
+// Input : -15  Output : 0
+//
+//////////////////////////////////////////////////////////////////////////

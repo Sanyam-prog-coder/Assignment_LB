@@ -1,59 +1,46 @@
-///////////////////////////////////////////////////////////////
+#include <stdio.h>
+
+////////////////////////////////////////////////////////////////////////////////////////
 //
-// Required Header File
+// Function     : Print_Factors
+// Description  : print all factors of a Number
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 01/11/2025
 //
-///////////////////////////////////////////////////////////////
-
-
-#include<stdio.h>
-
-///////////////////////////////////////////////////////////////
-//
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
-
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+////////////////////////////////////////////////////////////////////////////////////////
+void print_factors(int number)
 {
-    int iAns = 0;           // To Store the Result
-
-    if(iNo2 == 0)           // Updater
+    if (number <= 0)
     {
-        return -1;
+        printf("Invalid input! Please enter a positive number.\n");
+        return;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
 
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    printf("Factors of %d are: ", number);
+    for (int i = 1; i <= number; i++)
+    {
+        if (number % i == 0)
+        {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int number;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter number: ");
+    scanf("%d", &number);
 
-    printf("Divison is %d",iRet);
+    print_factors(number);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 15   Output : 1 2 4 8 16
+// Input :      Output : Invalid input! Please enter a positive number.
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////

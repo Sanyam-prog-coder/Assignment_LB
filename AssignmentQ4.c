@@ -1,50 +1,42 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+//
+// Function     : Sum_of_Even_Factors
+// Description  : Sum of Even Factors(exclude the number itself)
+// Auther       : Sanyam BhupendraKumar Ravne 
+// Date         : 02/11/2025
+//
+/////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int Sum_of_Even_Factors(int number)
 {
-    if((iNo % 5) == 0)
+    int i,Sum = 0;
+
+    for(i =1; i < number; i++)
     {
-        return true;
+        if((number % i == 0) && (i % 2 == 0))
+        {
+            Sum = Sum + i;
+        }
     }
-    else
-    {
-        return false;
-    }
+    return Sum;
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int number;
 
     printf("Enter number :");
-    scanf("%d",&iValue);
+    scanf("%d",&number);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("%d\n", Sum_of_Even_Factors(number));
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 12   Output : 12
+// Input : 6    Output : 2
 //
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
