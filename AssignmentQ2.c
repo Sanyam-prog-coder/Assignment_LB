@@ -1,23 +1,66 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+//
+// Function     : CheckZero
+// Description  : Accept No. from user & check it contains 0 or Not
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+/////////////////////////////////////////////////////////////////////////////
 
-void Display()
+#define TRUE 1
+#define FALSE 0
+
+typedef int BOOL;
+
+BOOL CheckZero(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    int iDigit = 0;
+
+    if(iNo < 0)     
     {
-        printf("Marvellous\n");
+        iNo = -iNo;
     }
+
+    while(iNo != 0)
+    {
+        iDigit = iNo % 10; 
+        if(iDigit == 0)     
+        {
+            return TRUE;
+        }
+        iNo = iNo / 10;      
+    }
+    return FALSE;
 }
+
 int main()
-{
-    Display();
+{ 
+    int iValue = 0;
+    BOOL bRet = FALSE;
+
+    printf("Enter number :");
+    scanf("%d",&iValue);
+
+    bRet = CheckZero(iValue);
+
+    if(bRet == TRUE)
+    {
+        printf("It contain zero");
+    }
+    else
+    {
+        printf("There is no zero");
+    }
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////////
+//
+// Input : 16750    Output : It contains zero
+// Input : 19546    Output : There is No zero
+// Input : -1540    Output : It contains zero
+// Input : -1645    Output : There is No zero
+//
+/////////////////////////////////////////////////////////////////////////////    

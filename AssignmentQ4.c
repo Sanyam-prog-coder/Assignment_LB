@@ -1,50 +1,48 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : CountFour
+// Descrption   : Accept No. from user & count frequncy of 4 in it
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 03//11/2025
+//
+/////////////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int CountFour(int iNo)
 {
-    if((iNo % 5) == 0)
+    int iDigit = 0 ,iCnt = 0;
+
+    while(iNo != 0)
     {
-        return true;
+        iDigit = iNo % 10;
+        if(iDigit == 4)
+        {
+            iCnt ++;
+        }
+        iNo = iNo / 10;
     }
-    else
-    {
-        return false;
-    }
+    return iCnt;
 }
 
 int main()
 {
     int iValue = 0;
-    bool bRet = false;
+    int iRet = 0;
 
-    printf("Enter number :");
+    printf("Enter number : ");
     scanf("%d",&iValue);
 
-    bRet = Check(iValue);
+    iRet = CountFour(iValue);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("Frequncy is %d",iRet);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 2395     Output : 0
+// Input : 9440     Output : 4
+// Input : 922432   Output : 1
 //
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////

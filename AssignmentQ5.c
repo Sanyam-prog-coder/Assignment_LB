@@ -1,26 +1,49 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : Count
+// Descrption   : Accept No. from user & count frequncy of such a Digit less than 6
+//                in it
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 03//11/2025
+//
+/////////////////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+int Count(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int iDigit = 0 ,iCnt = 0;
+
+    while(iNo != 0)
     {
-        printf("*\t\n");
+        iDigit = iNo % 10;
+        if(iDigit < 6)
+        {
+            iCnt ++;
+        }
+        iNo = iNo / 10;
     }
+    return iCnt;
 }
+
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
+    int iRet = 0;
+
+    printf("Enter number : ");
     scanf("%d",&iValue);
 
-    Accept(iValue);
+    iRet = Count(iValue);
+
+    printf("Frequncy is %d",iRet);
+
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// Input : 2395     Output : 3
+// Input : 9440     Output : 3
+// Input : 922432   Output : 6
+//
+/////////////////////////////////////////////////////////////////////////////////////

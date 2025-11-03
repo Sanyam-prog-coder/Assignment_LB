@@ -1,59 +1,43 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : DisplayDigit
+// description  : Accept No. from User & display its Digit in reverse order
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 02/11/2025
+//
+///////////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void DisplayDigit(int iNo)
 {
-    int iAns = 0;           // To Store the Result
+    int iDigit = 0;
 
-    if(iNo2 == 0)           // Updater
+    if(iNo < 0)
     {
-        return -1;
+        iNo = -iNo;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
-
+    while(iNo != 0)
+    {
+        iDigit = iNo % 10;
+        printf("%d\n",iDigit);
+        iNo = iNo / 10;
+    }
+}
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iValue = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter number : ");
+    scanf("%d",&iValue);
 
-    printf("Divison is %d",iRet);
+    DisplayDigit(iValue);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+///////////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 8945 Output : 5  4   9   8
+// Input : -465 Output : 5  6   4
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
