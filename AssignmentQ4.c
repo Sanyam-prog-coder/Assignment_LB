@@ -1,50 +1,52 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : MultiDigit
+// Description  : Accept No. from user & return Multiplication of all digit
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 03/11/2025
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int MultiDigit(int iNo)
 {
-    if((iNo % 5) == 0)
+    int iDigit = 0, iMult = 1;
+
+    if(iNo < 0)
     {
-        return true;
+        iNo = -iNo;
     }
-    else
+
+    while(iNo != 0)
     {
-        return false;
+        iDigit = iNo % 10;
+        if(iDigit != 0)
+        {
+            iMult = iMult * iDigit;
+        }
+        iNo = iNo / 10;
     }
+    return iMult;
 }
 
 int main()
 {
     int iValue = 0;
-    bool bRet = false;
+    int iRet = 0;
 
-    printf("Enter number :");
+    printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    bRet = Check(iValue);
+    iRet = MultiDigit(iValue);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("%d",iRet);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+// 
+// Input : 2395     Output : 270
+// Input : -1018    Output : 8
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////

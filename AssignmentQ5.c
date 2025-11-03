@@ -1,26 +1,58 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : CountDiff
+// Description  : Accept No. from user & return Diff betwn Sum of Even & Odd digit
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 03/11/2025
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+int CountDiff(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int iDigit = 0; 
+    int iEvenSum = 0, iOddSum = 0;
+
+    if(iNo < 0)
     {
-        printf("*\t\n");
+        iNo = -iNo;
     }
+
+    while(iNo != 0)
+    {
+        iDigit = iNo % 10;
+        if(iDigit % 2 == 0)
+        {
+            iEvenSum = iEvenSum + iDigit;
+        }
+        else
+        {
+            iOddSum = iOddSum + iDigit;
+        }
+
+        iNo = iNo / 10;
+    }
+    return (iEvenSum - iOddSum);
 }
+
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
+    int iRet = 0;
+
+    printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    Accept(iValue);
+    iRet = CountDiff(iValue);
+
+    printf("Difference Between Even & Odd %d",iRet);
+
     return 0;
 }
+//////////////////////////////////////////////////////////////////////////////////////
+// 
+// Input : 2395     Output : -15
+// Input : -5733    Output : -18
+//
+//////////////////////////////////////////////////////////////////////////////////////

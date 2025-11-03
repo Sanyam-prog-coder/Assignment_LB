@@ -1,23 +1,48 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : CountOdd
+// Description  : Accept No. from user & return the count of even digit
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 03/11/2025
+//
+//////////////////////////////////////////////////////////////////////////////////
 
-void Display()
+int CountOdd(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    int iDigit = 0, iCnt = 0;
+
+    while(iNo != 0)
     {
-        printf("Marvellous\n");
+        int iDigit = iNo % 10;
+        if(iDigit % 2 != 0)
+        {
+            iCnt ++;
+        }
+        iNo = iNo / 10;
     }
+    return iCnt;
 }
+
 int main()
 {
-    Display();
+    int iValue = 0;
+    int iRet = 0;
+
+    printf("Enter number : ");
+    scanf("%d",&iValue);
+
+    iRet = CountOdd(iValue);
+
+    printf("%d",iRet);
 
     return 0;
 }
+//////////////////////////////////////////////////////////////////////////////////
+// 
+// Input : 2395     Output : 3
+// Input : 1028     Output : 1
+// Input : -1564    Output : 2
+//
+//////////////////////////////////////////////////////////////////////////////////

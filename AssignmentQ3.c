@@ -1,24 +1,47 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : CountRange
+// Description  : Accept No. from user & return the Count of digit in betwn 3 to 7
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 03/11/2025
+//
+/////////////////////////////////////////////////////////////////////////////////////
 
-void Display()
+int CountRange(int iNo)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    int iDigit = 0, iCnt = 0;
+
+    while(iNo != 0)
     {
-        printf("%d\n",icnt);
-        icnt--;
+        int iDigit = iNo % 10;
+        if(iDigit > 3 && iDigit < 7)
+        {
+            iCnt ++;
+        }
+        iNo = iNo / 10;
     }
+    return iCnt;
 }
+
 int main()
 {
-    Display();
+    int iValue = 0;
+    int iRet = 0;
+
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
+
+    iRet = CountRange(iValue);
+
+    printf("%d",iRet);
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// Input : 2395     Output : 1
+// Input : 1018     Output : 0
+//
+///////////////////////////////////////////////////////////////////////////////////// 

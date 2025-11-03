@@ -1,59 +1,48 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : CountEven
+// Description  : Accept No. from user & return the count of even digit
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 03/11/2025
+//
+//////////////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+int CountEven(int iNo)
 {
-    int iAns = 0;           // To Store the Result
+    int iDigit = 0, iCnt = 0;
 
-    if(iNo2 == 0)           // Updater
+    while(iNo != 0)
     {
-        return -1;
+        int iDigit = iNo % 10;
+        if(iDigit % 2 == 0)
+        {
+            iCnt ++;
+        }
+        iNo = iNo / 10;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    return iCnt;
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iValue = 0;
+    int iRet = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter number : ");
+    scanf("%d",&iValue);
 
-    printf("Divison is %d",iRet);
+    iRet = CountEven(iValue);
+
+    printf("%d",iRet);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+//////////////////////////////////////////////////////////////////////////////////
+// 
+// Input : 2395     Output : 1
+// Input : 1028     Output : 2
+// Input : -1564    Output : 2
 //
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
