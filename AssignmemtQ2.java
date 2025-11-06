@@ -1,37 +1,35 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function     : checkSign
-// Description  : Check the number is Positive, negetive or Zero
+// Function     : printEvenNumbers
+// Description  : Print all Even Number upto N
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 06/11/2025
-//
 //////////////////////////////////////////////////////////////////////////////////////////
 
 class Logic
 {
-    void checkSign(int num)
+    void printEvenNumbers(int n)
     {
-        if(num > 0)
-            System.out.println(num + " is a Positive number.");
-        else if(num < 0)
-            System.out.println(num + " is a Negative number.");
-        else
-            System.out.println("The number is Zero.");
+        System.out.println("Even numbers up to " + n + ":");
+        for(int i = 1; i <= n; i++)
+        {
+            if(i % 2 == 0)
+                System.out.print(i + " ");
+        }
+        System.out.println();
     }
 }
 
-class AssignmentQ5
+class AssignmentQ2
 {
     public static void main(String args[])
     {
         Logic obj = new Logic();
-        obj.checkSign(8);
+        obj.printEvenNumbers(20);
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : -8   Output : -8 is a Negative
-// Input :  8   Output :  8 is a Positive
-// Input :  0   Output : The Number is Zero
+// Input : 20   Output : 11 is a primr Number
 //
 //////////////////////////////////////////////////////////////////////////////////////////

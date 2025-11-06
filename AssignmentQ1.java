@@ -1,36 +1,48 @@
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function     : Sumdigit
-// Description  : Sum of digit of Number
+// Function     : CheckPrime
+// Description  : check whether number prime or not
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 06/11/2025
-//
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
 class Logic
 {
-    void SumDigit(int num)
+    void checkPrime(int num)
     {
-        int sum = 0;
-        while(num != 0)
+        if(num <= 1)
         {
-            int digit = num % 10;
-            sum += digit;
-            num = num / 10;
+            System.out.println(num + " is not a prime number.");
+            return;
         }
-        System.out.println("Sum of digits = " + sum);
+
+        boolean BPrime = true;
+        for(int i = 2; i <= num / 2; i++)
+        {
+            if(num % i == 0)
+            {
+                BPrime = false;
+                break;
+            }
+        }
+
+        if(BPrime)
+            System.out.println(num + " is a prime number.");
+        else
+            System.out.println(num + " is not a prime number.");
     }
 }
+
 class AssignmentQ1
 {
     public static void main(String A[])
     {
         Logic lobj = new Logic();
-        lobj.SumDigit(1234);
+        lobj.checkPrime(11);
     }
 }
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : 1234     Output : 10
+// Input : 11   Output : 11 is a primr Number
 //
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////

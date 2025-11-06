@@ -1,36 +1,45 @@
-/////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function     : Findmin
-// Description  : Find the Minimum of three Number
+// Function     : sumEvenOddDigits
+// Description  : Find the sum of even and odd digits separately in a number
 // Auther       : Sanyam BhupendraKumar Ravne
 // Date         : 06/11/2025
 //
-/////////////////////////////////////////////////////////////////////////
- 
+//////////////////////////////////////////////////////////////////////////////////////////
+
 class Logic
 {
-    void FindMin(int a, int b, int c)
+    void sumEvenOddDigits(int num)
     {
-        int min = a;
+        int evenSum = 0, oddSum = 0;
 
-        if(b < min)
-            min = b;
-        if(c < min)
-            min = c;
+        while(num != 0)
+        {
+            int digit = num % 10;
+            if(digit % 2 == 0)
+                evenSum += digit;
+            else
+                oddSum += digit;
 
-        System.out.println("Minimum number is: " + min);
+            num = num / 10;
+        }
+
+        System.out.println("Sum of even digits = " + evenSum);
+        System.out.println("Sum of odd digits = " + oddSum);
     }
 }
+
 class AssignmentQ4
 {
-    public static void main(String A[])
+    public static void main(String args[])
     {
-        Logic lobj = new Logic();
-        lobj.FindMin(3,7,2);
+        Logic obj = new Logic();
+        obj.sumEvenOddDigits(123456);
     }
 }
-/////////////////////////////////////////////////////////////////////////
-// 
-// Input : 3 Input : 7 Input : 2    Output : 2
+//////////////////////////////////////////////////////////////////////////////////////////
 //
-/////////////////////////////////////////////////////////////////////////
+// Input : 123456   Output : Sum of even digits = 12
+//                           Sum of odd digits = 9
+//
+//////////////////////////////////////////////////////////////////////////////////////////
