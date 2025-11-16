@@ -1,50 +1,68 @@
 #include<stdio.h>
-#include<stdbool.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : Frequency
+// Description  : Accept No. from user & return frequency of 11 from it
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 14/11/2025
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int Frequency(int Arr[], int iLength)
 {
-    if((iNo % 5) == 0)
+    int iCnt = 0, iFreq = 0;
+
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        return true;
+        if(Arr[iCnt] == 11 )
+        {
+            iFreq++;
+        }
+        else
+        {
+
+        }
     }
-    else
-    {
-        return false;
-    }
+    return iFreq;
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iLength = 0, iCnt = 0, iSize = 0;
+    int  *ptr = NULL;
+    int iRet = 0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter the Size : ");
+    scanf("%d",&iSize);
 
-    bRet = Check(iValue);
+    ptr = (int *)malloc(iSize * sizeof(int));
 
-    if(bRet == true)
+    if(ptr == NULL)
     {
-        printf("Divisible by 5\n");
+        printf("Unable to Allocate memory");
+        return -1;
     }
-    else
+
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        printf("Not Divisible by 5\n");
+        printf("Enter Elements %d : ",iCnt+1);
+        scanf("%d",&ptr[iCnt]);
     }
+
+    iRet = Frequency(ptr,iSize);
+
+    printf("%d",iRet);
+
+    free(ptr);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 6    Input : 85 66 3 15 11 80    Output : 1
+// Input : 5    Input : 45 66 12 77 55      Output : 0
 //
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////

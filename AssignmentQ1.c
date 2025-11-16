@@ -1,59 +1,64 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : CountEven
+// Description  : Accept No. from user & return frequency of even
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 14/11/2025
+//
+//////////////////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+int CountEven(int Arr[],int iLength)
 {
-    int iAns = 0;           // To Store the Result
+    int iCnt = 0;
+    int iCount = 0;
 
-    if(iNo2 == 0)           // Updater
+    for(iCnt = 0;iCnt < iLength; iCnt++)
     {
-        return -1;
+        if((Arr[iCnt] % 2) == 0)
+        {
+            iCount++;
+        }
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
 
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    return iCount;
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iLength = 0, iRet = 0, iCnt = 0, iSize = 0;
+    int  *ptr = NULL;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter the Size : ");
+    scanf("%d\n",&iSize);
 
-    printf("Divison is %d",iRet);
+    ptr = (int *)malloc(iSize * sizeof(int));
+
+    if(ptr == NULL)
+    {
+        printf("Unable to Allocate memory");
+        return -1;
+    }
+
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        printf("Enter Elements\n : ",iLength);
+        scanf("%d\n",&ptr[iCnt]);
+    }
+
+    iRet = CountEven(ptr,iSize);
+
+    printf("Result is %d",iRet);
+
+    free(ptr);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+//////////////////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 6    Input : 85 66 3 80 93 88    Output : 3
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
