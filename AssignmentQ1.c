@@ -1,59 +1,63 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : Maximum
+// Description  : accept N no. from user and return the largest Number
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 18/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+int Maximum(int Arr[], int iLength)
 {
-    int iAns = 0;           // To Store the Result
+    int iCnt = 0, iMax = Arr[0];
 
-    if(iNo2 == 0)           // Updater
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        return -1;
+        if(Arr[iCnt] > iMax)
+        {
+            iMax = Arr[iCnt];
+        }
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    return iMax;
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iSize = 0, iCnt = 0, iRet = 0;
+    int *ptr = NULL;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter number of elements: ");
+    scanf("%d", &iSize);
 
-    printf("Divison is %d",iRet);
+    ptr = (int *)malloc(iSize * sizeof(int));
+
+    if(ptr == NULL)
+    {
+        printf("Unable to allocate memory");
+        return -1;
+    }
+
+    printf("Enter %d elements:\n", iSize);
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        printf("Enter element %d: ", iCnt + 1);
+        scanf("%d", &ptr[iCnt]);
+    }
+
+    iRet = Maximum(ptr, iSize);
+
+    printf("Largest Number is %d\n", iRet);
+
+    free(ptr);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 6    Input : 85 66 3 66 93 88    Output : 93
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////

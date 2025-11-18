@@ -1,50 +1,65 @@
 #include<stdio.h>
-#include<stdbool.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//
+// Function     : Digit
+// Description  : Accept N no. from user and display all such no. 
+//                which contains 3 Digits in it
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 18/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+void Digit(int Arr[], int iLength)
 {
-    if((iNo % 5) == 0)
+    int iCnt = 0;
+
+    printf("Numbers containing exactly 3 digits are:\n");
+
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        return true;
+        if((Arr[iCnt] >= 100 && Arr[iCnt] <= 999) ||
+           (Arr[iCnt] <= -100 && Arr[iCnt] >= -999))
+        {
+            printf("%d ", Arr[iCnt]);
+        }
     }
-    else
-    {
-        return false;
-    }
+    printf("\n");
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iSize = 0, iCnt = 0, iRet = 0;
+    int *ptr = NULL;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter number of elements: ");
+    scanf("%d", &iSize);
 
-    bRet = Check(iValue);
+    ptr = (int *)malloc(iSize * sizeof(int));
 
-    if(bRet == true)
+    if(ptr == NULL)
     {
-        printf("Divisible by 5\n");
+        printf("Unable to allocate memory");
+        return -1;
     }
-    else
+
+    printf("Enter %d elements:\n", iSize);
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        printf("Not Divisible by 5\n");
+        printf("Enter element %d: ", iCnt + 1);
+        scanf("%d", &ptr[iCnt]);
     }
+
+    Digit(ptr, iSize);
+
+    free(ptr);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 6    Input : 8225 665 3 76 953 858    Output : 665 953 858 
 //
-///////////////////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////
