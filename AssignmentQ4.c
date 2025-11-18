@@ -1,50 +1,70 @@
 #include<stdio.h>
-#include<stdbool.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//
+// Function     : Range
+// Description  : Accept 1 No from user and accept Range, display all
+//                elements from that range
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 18/11/2025
+//
+//////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+#include <stdio.h>
+#include <stdlib.h>
+
+void Range(int Arr[], int iLength, int iStart, int iEnd)
 {
-    if((iNo % 5) == 0)
+    int iCnt = 0;
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        return true;
-    }
-    else
-    {
-        return false;
+        if(Arr[iCnt] >= iStart && Arr[iCnt] <= iEnd)
+        {
+            printf("%d ", Arr[iCnt]);
+        } 
     }
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iSize = 0, iCnt = 0, iValue1 = 0, iValue2 = 0, iRet = 0;
+    int *ptr = NULL;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter number of elements: ");
+    scanf("%d", &iSize);
 
-    bRet = Check(iValue);
+    printf("Enter the starting Point : ");
+    scanf("%d", &iValue1);
 
-    if(bRet == true)
+    printf("Enter the ending Point : ");
+    scanf("%d", &iValue2);
+
+    ptr = (int *)malloc(iSize * sizeof(int));
+
+    if(ptr == NULL)
     {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
+        printf("Unable to allocate memory");
+        return -1;
     }
 
+    printf("Enter %d elements:\n", iSize);
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        printf("Enter element %d: ", iCnt + 1);
+        scanf("%d", &ptr[iCnt]);
+    }
+
+    printf("Output : ");
+    Range(ptr, iSize, iValue1, iValue2);
+
+    free(ptr);
     return 0;
 }
 
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 6    Start : 60 End : 90     Output : 85 66 76 88
 //
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////

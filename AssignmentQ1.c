@@ -1,59 +1,79 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdbool.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : Check
+// Description  : Accept 1 No from user and accept another No from user
+//                check whether No is present or not
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 18/11/2025
+//
+//////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+bool Check(int Arr[], int iLength, int iNO)
 {
-    int iAns = 0;           // To Store the Result
+    int iCnt = 0;
 
-    if(iNo2 == 0)           // Updater
+    for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        return -1;
+        if(Arr[iCnt] == iNO)
+        {
+            return true;
+        }
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    return false;
+}
 
 int main()
-{
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+{   
+    int iSize = 0, iCnt = 0, iValue = 0;
+    int *ptr = NULL;
+    bool bRet = false;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter number of elements: ");
+    scanf("%d", &iSize);
 
-    printf("Divison is %d",iRet);
+    printf("Enter the number you want to search: ");
+    scanf("%d", &iValue);
+
+    ptr = (int *)malloc(iSize * sizeof(int));
+
+    if(ptr == NULL)
+    {
+        printf("Unable to allocate memory");
+        return -1;
+    }
+
+    printf("Enter %d elements:\n", iSize);
+
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        printf("Enter element %d: ", iCnt + 1);
+        scanf("%d", &ptr[iCnt]);
+    }
+
+    bRet = Check(ptr, iSize, iValue);
+
+    if(bRet == true)
+    {
+        printf("Number is present\n");
+    }
+    else
+    {
+        printf("Number is absent\n");
+    }
+
+    free(ptr);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+//////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 6    Input : 66      Input : 85 66 3 66 93 88    
+// Output : No is present
+// Input : 6    Input : 12      Input : 85 11 3 15 11 111 
+// Output : No is Absent
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////
