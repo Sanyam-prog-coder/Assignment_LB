@@ -1,50 +1,38 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+//
+// Function     : Pattern
+// Desscription : Accept Number from user and display below pattern
+//                # 1   *   #   2   *   #   3   *   #   4   *   
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 21/11/2025
+//
+/////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+void pattern(int iNo)
 {
-    if((iNo % 5) == 0)
+    int iCnt = 0;
+
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        return true;
-    }
-    else
-    {
-        return false;
+        printf("#\t%d\t*\t",iCnt);
     }
 }
 
 int main()
 {
     int iValue = 0;
-    bool bRet = false;
 
-    printf("Enter number :");
+    printf("Enter Number of Elements : ");
     scanf("%d",&iValue);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    pattern(iValue);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+// 
+// Input : 4   Output : # 1   *   #   2   *   #   3   *   #   4   *
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
