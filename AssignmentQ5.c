@@ -1,26 +1,37 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+//
+// Function     : Pattern
+// Desscription : Accept Number from user and display below pattern
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 21/11/2025
+//
+/////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void pattern(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int iCnt = 0;
+
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        printf("*\t\n");
+        printf("%d\t",iCnt * 2);
     }
 }
+
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
+
+    printf("Enter Number of Elements : ");
     scanf("%d",&iValue);
 
-    Accept(iValue);
+    pattern(iValue);
+
     return 0;
 }
+/////////////////////////////////////////////////////////////////////
+// 
+// Input : 8   Output :2    4   6   8   10  12  14  16
+//
+/////////////////////////////////////////////////////////////////////
