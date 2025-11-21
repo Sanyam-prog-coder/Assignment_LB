@@ -1,50 +1,50 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//
+// Function     : Pattern
+// Description  : accept number of rows and column from user and display
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 21/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+void Pattern(int iRow, int iCol)
 {
-    if((iNo % 5) == 0)
+    int i = 0, j = 0;
+
+    for(i = iRow; i >= 1; i--)
     {
-        return true;
-    }
-    else
-    {
-        return false;
+        for(j = 1; j <= iCol; j++)
+        {
+            printf("%d\t",i);
+        }
+        printf("\n");
     }
 }
-
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iValue1 = 0, iValue2 = 0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter Number of rows : ");
+    scanf("%d",&iValue1);
 
-    bRet = Check(iValue);
+    printf("Enter Number of Coloumn : ");
+    scanf("%d",&iValue2);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    Pattern(iValue1,iValue2);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 4    Input : 5
+// Output : 
+/*
+    4   4   4   4   4
+    3   3   3   3   3
+    2   2   2   2   2   
+    1   1   1   1   1
+*/
 //
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////

@@ -1,59 +1,51 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : Pattern
+// Description  : accept number of rows and column from user and display
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 21/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void Pattern(int iRow, int iCol)
 {
-    int iAns = 0;           // To Store the Result
-
-    if(iNo2 == 0)           // Updater
+    for(int iCnt = 1; iCnt <= iRow; iCnt++)
     {
-        return -1;
+        char Ch = 'A';
+        
+        for(int j = 1; j <= iCol; j++)
+        {
+            printf("%c\t",Ch);
+            Ch++;
+        }
+        printf("\n");
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
-
+}
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iValue1 = 0, iValue2 = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter Number of rows : ");
+    scanf("%d",&iValue1);
 
-    printf("Divison is %d",iRet);
+    printf("Enter Number of Coloumn : ");
+    scanf("%d",&iValue2);
+
+    Pattern(iValue1,iValue2);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 4    Input : 4
+// Output : 
+/*
+    A   B   C   D
+    A   B   C   D
+    A   B   C   D
+    A   B   C   D
+*/
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
