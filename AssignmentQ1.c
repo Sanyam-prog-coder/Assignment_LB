@@ -1,59 +1,56 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+// Function     : Pattern
+// Description  : Accept No. of Rows & coloumn from user and display
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 22/11/2025
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void Pattern(int iRow,int iCOl)
 {
-    int iAns = 0;           // To Store the Result
+    int i = 0, j = 0;
+    int iCount = 1;
 
-    if(iNo2 == 0)           // Updater
+    for(i = 1; i <= iRow; i++)
     {
-        return -1;
+        for(j = 1; j <= iCOl; j++)
+        {
+            printf("%d\t",iCount);
+            iCount++;
+
+            if(iCount == 10)
+            {
+                iCount = 1;
+            }
+        }
+        printf("\n");
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
-
+}
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iValue1 = 0, iValue2 = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter Number of Rows : ");
+    scanf("%d",&iValue1);
 
-    printf("Divison is %d",iRet);
+    printf("Enter Number of Coloumn : ");
+    scanf("%d",&iValue2);
+
+    Pattern(iValue1, iValue2);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+/////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : Row 4    Column 4
+/*
+    Output :
+    1   2   3   4
+    5   6   7   8
+    9   1   2   3   
+    4   5   6   7
+*/
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////

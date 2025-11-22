@@ -1,26 +1,55 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+// Function     : Pattern
+// Description  : Accept No. of Rows & coloumn from user and display
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 22/11/2025
+//
+/////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void Pattern(int iRow, int iCol)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int i = 0, j = 0;
+    int start = 0;
+
+    for(i = 1; i <= iRow; i++)
     {
-        printf("*\t\n");
+        start = i;           
+
+        for(j = 1; j <= iCol; j++)
+        {
+            printf("%d\t", start);
+            start++;         
+        }
+
+        printf("\n");
     }
 }
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    int iValue1 = 0, iValue2 = 0;
 
-    Accept(iValue);
+    printf("Enter Number of Rows : ");
+    scanf("%d",&iValue1);
+
+    printf("Enter Number of Coloumn : ");
+    scanf("%d",&iValue2);
+
+    Pattern(iValue1, iValue2);
+
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+//
+// Input : Row 4    Column 4
+/*
+    Output :
+    1   2   3   4
+    2   3   4   5
+    3   4   5   6
+    4   5   6   7   
+*/
+//
+/////////////////////////////////////////////////////////////////////////
