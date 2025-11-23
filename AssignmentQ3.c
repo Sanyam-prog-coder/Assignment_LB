@@ -1,24 +1,62 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+// Function     : Pattern
+// Description  : Accept No. of Rows & coloumn from user and display
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 22/11/2025
+//
+/////////////////////////////////////////////////////////////////////////
 
-void Display()
+void Pattern(int iRow, int iCol)
 {
-    int icnt = 5;
-    while(icnt >= 1)
-    {
-        printf("%d\n",icnt);
-        icnt--;
+    int i = 0, j = 0;
+
+    for(i = 1; i <= iRow; i++)
+    {         
+        for(j = 1; j <= iCol; j++)
+        {
+            if(i == j)
+            {
+                printf("$\t");   // Exception 
+            }
+            else if(i  > j)
+            {
+                printf("#\t");
+            }
+            else
+            {
+                printf("*\t");
+            }
+        }
+        printf("\n");
     }
 }
 int main()
 {
-    Display();
+    int iValue1 = 0, iValue2 = 0;
+
+    printf("Enter Number of Rows : ");
+    scanf("%d",&iValue1);
+
+    printf("Enter Number of Coloumn : ");
+    scanf("%d",&iValue2);
+
+    Pattern(iValue1, iValue2);
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+//
+// Input : Row 4    Column 4
+/*
+    Output :
+    $   *   *   *   *
+    #   $   *   *   *   
+    #   #   $   *   *
+    #   #   #   $   *
+    #   #   #   #   $ 
+*/
+//
+/////////////////////////////////////////////////////////////////////////

@@ -1,23 +1,50 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+//
+// Function     : Pattern
+// Description  : Accept No. of Rows & coloumn from user and display
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 22/11/2025
+//
+/////////////////////////////////////////////////////////////////////////
 
-void Display()
+void Pattern(int iRow, int iCol)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
-    {
-        printf("Marvellous\n");
+    int i = 0, j = 0;
+
+    for(i = 1; i <= iRow; i++)
+    {         
+        for(j = 1; j <= (iCol - i + 1); j++)
+        {
+            printf("*\t");   
+        }
+        printf("\n");
     }
 }
 int main()
 {
-    Display();
+    int iValue1 = 0, iValue2 = 0;
+
+    printf("Enter Number of Rows : ");
+    scanf("%d",&iValue1);
+
+    printf("Enter Number of Coloumn : ");
+    scanf("%d",&iValue2);
+
+    Pattern(iValue1, iValue2);
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////
+//
+// Input : Row 4    Column 4
+/*
+    Output :
+    *   *   *   *
+    *   *   *
+    *   *
+    * 
+*/
+//
+/////////////////////////////////////////////////////////////////////////
