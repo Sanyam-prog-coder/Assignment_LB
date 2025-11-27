@@ -1,59 +1,56 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : ChkAlpha
+// Description  : Accept Ch from user and Check it Alphabet or Not
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 27/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+
+typedef int BOOL;
+
+BOOL ChkAlpha(char ch)
 {
-    int iAns = 0;           // To Store the Result
-
-    if(iNo2 == 0)           // Updater
+    while(ch != '\0')
     {
-        return -1;
+        if((ch >= 'A') && (ch <= 'Z') || (ch >= 'a') && (ch <= 'z'))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
-
+}
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    char cValue = '\0';
+    BOOL bRet = false;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter the Character : ");
+    scanf("%c",&cValue);
 
-    printf("Divison is %d",iRet);
+    bRet = ChkAlpha(cValue);
+
+    if(bRet == true)
+    {
+        printf("It is Character");
+    }
+    else 
+    {
+        printf("It Is not a Chracter");
+    }
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////
+// 
+// Input : F    Output : It is Character
+// Input : &    Output : It is Not Character
 //
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////

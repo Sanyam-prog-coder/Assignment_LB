@@ -1,50 +1,56 @@
 #include<stdio.h>
 #include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//
+// Function     : CheckSmall
+// Description  : Accept Ch from user and Check it is Capital or Not
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 27/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+
+typedef int BOOL;
+
+BOOL CheckSmall(char ch)
 {
-    if((iNo % 5) == 0)
+    while(ch != '\0')
     {
-        return true;
-    }
-    else
-    {
-        return false;
+        if((ch >= 'a') && (ch <= 'z'))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
-
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    char cValue = '\0';
+    BOOL bRet = false;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter the Character : ");
+    scanf("%c",&cValue);
 
-    bRet = Check(iValue);
+    bRet = CheckSmall(cValue);
 
     if(bRet == true)
     {
-        printf("Divisible by 5\n");
+        printf("It is Small case Character");
     }
-    else
+    else 
     {
-        printf("Not Divisible by 5\n");
+        printf("It Is not a Small case Chracter");
     }
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// 
+// Input : g    Output : It is Small case Character
+// Input : D    Output : It is Not Small case Character
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////

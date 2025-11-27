@@ -1,26 +1,50 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//
+// Function     : DisplaySchedule
+// Description  : Accept Ch from user and schedule Exam
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 27/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+int DisplaySchedule(char chDiv)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    if(chDiv == 'A')
     {
-        printf("*\t\n");
+        printf("Your Exam At 7 AM");
+    }
+    else if(chDiv == 'B')
+    {
+        printf("Your Exam At 8.30 AM");
+    }
+    else if(chDiv == 'C')
+    {
+        printf("Your Exam At 9.20 AM");
+    }
+    else if(chDiv == 'D')
+    {
+        printf("Your Exam At 10.30 AM");
     }
 }
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    char cValue ='\0';
+    bool bRet = false;
 
-    Accept(iValue);
+    printf("Enter Your Devision : ");
+    scanf("%c",&cValue);
+
+    bRet = DisplaySchedule(cValue);
+     
     return 0;
 }
+////////////////////////////////////////////////////////////////////////
+//
+// Input : A    Output : Your Exam At 7 AM
+// Input : d    Output : (Case Sensetive)
+//
+////////////////////////////////////////////////////////////////////////

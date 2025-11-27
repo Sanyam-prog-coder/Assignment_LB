@@ -1,23 +1,56 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//
+// Function     : ChkCapital
+// Description  : Accept Ch from user and Check it is Capital or Not
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 27/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-void Display()
+
+typedef int BOOL;
+
+BOOL CheckCapital(char ch)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    while(ch != '\0')
     {
-        printf("Marvellous\n");
+        if((ch >= 'A') && (ch <= 'Z'))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 int main()
 {
-    Display();
+    char cValue = '\0';
+    BOOL bRet = false;
+
+    printf("Enter the Character : ");
+    scanf("%c",&cValue);
+
+    bRet = CheckCapital(cValue);
+
+    if(bRet == true)
+    {
+        printf("It is Capital Character");
+    }
+    else 
+    {
+        printf("It Is not a Capital Chracter");
+    }
 
     return 0;
 }
+////////////////////////////////////////////////////////////////////////
+// 
+// Input : F    Output : It is Capital Character
+// Input : d    Output : It is Not Capital Character
+//
+////////////////////////////////////////////////////////////////////////

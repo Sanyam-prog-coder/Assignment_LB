@@ -1,24 +1,56 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//
+// Function     : ChkCapital
+// Description  : Accept Ch from user and Check it is Digit or Not
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 27/11/2025
+//
+////////////////////////////////////////////////////////////////////////
 
-void Display()
+
+typedef int BOOL;
+
+BOOL CheckDigit(char ch)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    while(ch != '\0')
     {
-        printf("%d\n",icnt);
-        icnt--;
+        if((ch >= '0') && (ch <= '9'))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 int main()
 {
-    Display();
+    char cValue = '\0';
+    BOOL bRet = false;
+
+    printf("Enter the Character : ");
+    scanf("%c",&cValue);
+
+    bRet = CheckDigit(cValue);
+
+    if(bRet == true)
+    {
+        printf("It is Digit");
+    }
+    else 
+    {
+        printf("It Is not a Digit");
+    }
 
     return 0;
 }
+////////////////////////////////////////////////////////////////////////
+// 
+// Input : 8    Output : It is Digit
+// Input : d    Output : It is Not Digit
+//
+////////////////////////////////////////////////////////////////////////
