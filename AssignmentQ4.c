@@ -1,50 +1,40 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Function     : DisplayDigit
+// Description  : Accept string from user and Display only Digit
+// Auther       : Sanyam BhupendraKuamr Ravne 
+// Date         : 28/11/2025
+//
+////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+void DisplayDigit(char *str)
 {
-    if((iNo % 5) == 0)
+    while(*str != '\0')
     {
-        return true;
+        if(*str >= '0' && *str <= '9')
+        {
+            printf("%c",*str);
+        }
+        *str++;
     }
-    else
-    {
-        return false;
-    }
+    printf("\n");
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    char Arr[20];
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    DisplayDigit(Arr);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : marve89llous121  Output : 89121
 //
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////

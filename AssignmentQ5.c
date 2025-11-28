@@ -1,26 +1,47 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Function     : CountWhite
+// Description  : Accept string from user and Display only Digit
+// Auther       : Sanyam BhupendraKuamr Ravne 
+// Date         : 28/11/2025
+//
+////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+int CountWhite(char *str)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int iCount = 0;
+
+    while(*str != '\0')
     {
-        printf("*\t\n");
+        if(*str == ' ')
+        {
+            iCount++;
+        }
+        *str++;
     }
+    return iCount;
+
 }
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    int iRet = 0;
 
-    Accept(iValue);
+    char Arr[20];
+
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
+
+    iRet = CountWhite(Arr);
+
+    printf("%d",iRet);
+
     return 0;
 }
+////////////////////////////////////////////////////////////////////
+//
+// Input : Marvellous Drive  Output : 1
+//
+////////////////////////////////////////////////////////////////////

@@ -1,24 +1,46 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Function     : strroggleX
+// Description  : Accept string from user and Toggle it
+// Auther       : Sanyam BhupendraKuamr Ravne 
+// Date         : 28/11/2025
+//
+////////////////////////////////////////////////////////////////////
 
-void Display()
+void strroggleX(char *str)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    while(*str != '\0')
     {
-        printf("%d\n",icnt);
-        icnt--;
+        if(*str >= 'A' && *str <= 'Z')
+        {
+            *str = *str + 32;
+        }
+        else if(*str >= 'a' && *str <= 'z')
+        {
+            *str = *str - 32;
+        }
+        *str++;
     }
 }
+
 int main()
 {
-    Display();
+    char Arr[20];
+
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
+
+    strroggleX(Arr);
+
+    printf("Modified String is : %s",Arr);
 
     return 0;
 }
+////////////////////////////////////////////////////////////////////
+//
+// Input : SaNyAM       Output : sAnYam
+// Input : MarVeLLouS   Output : mARvEllOUs
+//
+////////////////////////////////////////////////////////////////////
