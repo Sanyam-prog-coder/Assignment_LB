@@ -1,23 +1,51 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+//
+// Function     : Display
+// Description  : Accept ch from User and Change Case
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+//////////////////////////////////////////////////////////
 
-void Display()
+void Display(char Ch)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    if(Ch >= 'A' && Ch <= 'Z')
     {
-        printf("Marvellous\n");
+        Ch = Ch + 32;
     }
+    else if(Ch >= 'a' && Ch <= 'z')
+    {
+        Ch = Ch - 32; 
+    }
+    else if(Ch >= '0' && Ch <= '9')
+    {
+        Ch = Ch ;
+    }
+    else
+    {
+        Ch = Ch;
+    }
+
+    printf("Updated Value : %c",Ch);
 }
 int main()
-{
-    Display();
+{   
+    char cValue = '\0';
+
+    printf("Enter the character : ");
+    scanf("%c",&cValue);
+
+    Display(cValue);
 
     return 0;
 }
+//////////////////////////////////////////////////////////
+// 
+// Input : A    Output : a
+// Input : a    Output : A
+// Input : 3    Output : 3
+// Input : %    Output : %
+//
+//////////////////////////////////////////////////////////

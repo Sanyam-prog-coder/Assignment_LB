@@ -1,26 +1,36 @@
 #include<stdio.h>
 
 ///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//
+// Function     : Display
+// Description  : Accept Ch from user and display ASCII value in 
+//                  Decimal, octal and HexaDecimal format
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+///////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void Display(char Ch)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
-    {
-        printf("*\t\n");
-    }
+    printf("Decimal value : %d\n",Ch);
+    printf("Octal Value : %o\n",Ch);
+    printf("HexaDecimal value : %x\n",Ch);
 }
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    char cValue = '\0';
 
-    Accept(iValue);
+    printf("Enter the Character : ");
+    scanf("%c",&cValue);
+
+    Display(cValue);
+
     return 0;
 }
+///////////////////////////////////////////////////////////////////////
+//
+// Input : J    
+// Output : Decimal value: 74,Octal Value: 112,HexaDecimal value: 4a
+//
+///////////////////////////////////////////////////////////////////////

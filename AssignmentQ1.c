@@ -1,59 +1,40 @@
-///////////////////////////////////////////////////////////////
+#include <stdio.h>
+
+//////////////////////////////////////////////////////////////////////////////////////////
 //
-// Required Header File
+// Function     : DisplayASCII
+// Descrioption : Display ASCII table 
+// Auther       : Sanyam BHupendraKumar Ravne
+// Date         : 28/11/2025
 //
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
-
-#include<stdio.h>
-
-///////////////////////////////////////////////////////////////
-//
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
-
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void DisplayASCII()
 {
-    int iAns = 0;           // To Store the Result
+    int iCnt = 0;
 
-    if(iNo2 == 0)           // Updater
+    printf("----------------------------------------------------------\n");
+    printf("  Dec\tHex\tOct\tSymbol\n");
+    printf("----------------------------------------------------------\n");
+
+    for(iCnt = 0; iCnt <= 255; iCnt++)
     {
-        return -1;
+        if(iCnt >= 32 && iCnt <= 126)
+        {
+            printf("  %3d\t%02X\t%03o\t%c\n", iCnt, iCnt, iCnt, iCnt);
+        }
+        else
+        {
+            printf("  %3d\t%02X\t%03o\t.\n", iCnt, iCnt, iCnt);
+        }
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
 
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    printf("----------------------------------------------------------\n");
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
-
-    iRet = Divide(iValue1,iValue2); // Method Call
-
-    printf("Divison is %d",iRet);
-
+    DisplayASCII();
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
-//
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+}
+//////////////////////////////////////////////////////////////////////////////////////////

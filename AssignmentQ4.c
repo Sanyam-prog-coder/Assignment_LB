@@ -1,16 +1,20 @@
 #include<stdio.h>
 #include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//
+// Function     : CheckSpeccial
+// Description  : Accept ch from user and Check  
+//                wheather it is special symbol or not
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+//////////////////////////////////////////////////////
 
-bool Check( int iNo)
+bool CheckSpecial(char Ch)
 {
-    if((iNo % 5) == 0)
+    if(Ch == '!' || Ch == '@' || Ch == '#' || Ch == '$' ||
+       Ch == '%' || Ch == '^' || Ch == '&' || Ch == '*')
     {
         return true;
     }
@@ -22,29 +26,28 @@ bool Check( int iNo)
 
 int main()
 {
-    int iValue = 0;
+    char cValue = '\0';
     bool bRet = false;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter the Character : ");
+    scanf("%c",&cValue);
 
-    bRet = Check(iValue);
+    bRet = CheckSpecial(cValue);
 
     if(bRet == true)
     {
-        printf("Divisible by 5\n");
+        printf("It is a Special Character");
     }
     else
     {
-        printf("Not Divisible by 5\n");
+        printf("It is Not a Special Character");
     }
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : #    Output : It is a Special Character
+// Input : s    Output : It is Not a Special Character
 //
-///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
