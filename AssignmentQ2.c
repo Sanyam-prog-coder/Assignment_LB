@@ -1,23 +1,44 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+//
+// Function     : CountSmall
+// Description  : Accepting string from user and count Small Ch
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+/////////////////////////////////////////////////////////////////////
 
-void Display()
+int CountSmall(char *str)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    int iCount = 0;
+
+    while(*str != '\0')
     {
-        printf("Marvellous\n");
+        if((*str >= 'a') && (*str <= 'z'))
+        {
+            iCount++;
+        }
+        str++;
     }
+    return iCount;
 }
 int main()
 {
-    Display();
+    char Arr[20];
+    int iRet = 0;
+
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
+
+    iRet = CountSmall(Arr);
+
+    printf("%d",iRet);
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////////
+//
+// Input : Marvellous   Output : 9
+//
+/////////////////////////////////////////////////////////////////////

@@ -1,59 +1,45 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : CountCapital
+// Description  : Accepting string from user and count Capital Ch
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+/////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+int CountCapital(char *str)
 {
-    int iAns = 0;           // To Store the Result
+    int iCount = 0;
 
-    if(iNo2 == 0)           // Updater
+    while(*str != '\0')
     {
-        return -1;
+        if((*str >= 'A') && (*str <= 'Z'))
+        {
+            iCount++;
+        }
+        str++;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
-
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    return iCount;
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    char Arr[20];
+    int iRet = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
 
-    printf("Divison is %d",iRet);
+    iRet = CountCapital(Arr);
+
+    printf("%d",iRet);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+/////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : Marvellous Multi OS  Output : 4
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////

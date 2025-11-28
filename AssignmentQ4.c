@@ -1,50 +1,51 @@
 #include<stdio.h>
 #include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Function     : CheckVowel
+// Description  : Accepting string from user & check vowel
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+bool CheckVowel(char *str)
 {
-    if((iNo % 5) == 0)
+    while(*str != '\0')
     {
-        return true;
+        if((*str == 'a') || (*str == 'e') ||(*str == 'i') || (*str == 'o')|| (*str == 'u'))
+        {
+            return true;
+        }
+        str++;
     }
-    else
-    {
-        return false;
-    }
+    return false;
 }
 
 int main()
 {
-    int iValue = 0;
+    char Arr[20];
     bool bRet = false;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
 
-    bRet = Check(iValue);
+    bRet = CheckVowel(Arr);
 
     if(bRet == true)
     {
-        printf("Divisible by 5\n");
+        printf("Contains Vowel");
     }
     else
     {
-        printf("Not Divisible by 5\n");
+        printf("There is no Vowel");
     }
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : Marvellous   Output : Contains Vowel
+// Input : MARVELLOUS   Output : there is No vowel(Case Sensitive)
 //
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////

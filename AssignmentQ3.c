@@ -1,24 +1,49 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+//
+// Function     : Difference
+// Description  : Accepting string from user and Diff Small and Cap
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+/////////////////////////////////////////////////////////////////////
 
-void Display()
+int Difference(char *str)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    int iCount = 0;
+    int Small = 0, Capital = 0;
+
+    while(*str != '\0')
     {
-        printf("%d\n",icnt);
-        icnt--;
+        if((*str >= 'a') && (*str <= 'z'))
+        {
+            Small++;
+        }
+        else if((*str >= 'A') && (*str <= 'Z'))
+        {
+            Capital++;
+        }
+        str++;
     }
+    return iCount = Small - Capital;
 }
 int main()
 {
-    Display();
+    char Arr[20];
+    int iRet = 0;
+
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
+
+    iRet = Difference(Arr);
+
+    printf("%d",iRet);
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////////
+//
+// Input : SanyaM   Output : 2
+//
+/////////////////////////////////////////////////////////////////////

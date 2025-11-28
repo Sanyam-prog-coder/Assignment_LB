@@ -1,26 +1,47 @@
 #include<stdio.h>
+#include<string.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+//
+// Function     : Reverse
+// Description  : Accept string From user and Reverse it
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 28/11/2025
+//
+///////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void Reverse(char *str)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int iStart = 0;
+    int iEnd = strlen(str) - 1;
+
+    while(iStart < iEnd)
     {
-        printf("*\t\n");
+        char temp = str[iStart];
+        str[iStart] = str[iEnd];
+        str[iEnd] = temp;
+
+        iStart++;
+        iEnd--;
     }
 }
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    char Arr[20];
+    int iRet = 0;
 
-    Accept(iValue);
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
+
+    Reverse(Arr);
+
+    printf("Reversed String is : %s\n",Arr);
+
     return 0;
 }
+///////////////////////////////////////////////////////////////
+//
+// Input : SanyaM   Output : MaynaS
+//
+///////////////////////////////////////////////////////////////
