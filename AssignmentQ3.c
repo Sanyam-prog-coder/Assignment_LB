@@ -1,24 +1,45 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : StrCpyCap
+// Description  : Capital the Given String And copy it into Another string
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 30/11/2025
+//
+////////////////////////////////////////////////////////////////////////////////////////
 
-void Display()
+void StrCpyCap(char *str, char *dest)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    while(*str != '\0')
     {
-        printf("%d\n",icnt);
-        icnt--;
+        if(*str >= 'a' && *str <= 'z')
+        {
+            *dest = *str - 32;
+        }
+        else
+        {
+            *dest = *str;
+        }
+        str++;
+        dest++;
     }
+    *dest = '\0';
 }
+
 int main()
 {
-    Display();
+    char Arr[30] = "marvellous python 2";
+    char Brr[30];
+
+    StrCpyCap(Arr, Brr);
+
+    printf("%s\n",Brr);
 
     return 0;
 }
+////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Input : marvellous python 2 Output : MARVELLOUS PYTHON 2
+//
+////////////////////////////////////////////////////////////////////////////////////////

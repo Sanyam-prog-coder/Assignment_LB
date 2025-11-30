@@ -1,59 +1,44 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : StrCpyRev
+// Description  : Reverse Given String and Copy int into Another string
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 30/11/2025
+//
+////////////////////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void StrCpyRev(char *str, char *dest)
 {
-    int iAns = 0;           // To Store the Result
+    int length = 0, iCnt = 0;
 
-    if(iNo2 == 0)           // Updater
+    while(str[length] != 0)
     {
-        return -1;
+        length++;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
 
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    for(iCnt = 0; iCnt < length; iCnt++)
+    {
+        dest[iCnt] = str[length - iCnt - 1];
+    }
+
+    dest[length] = '\0';
+}
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    char Arr[30] = "Marvellous Python";
+    char Brr[30];
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    StrCpyRev(Arr, Brr);
 
-    printf("Divison is %d",iRet);
+    printf("%s\n",Brr);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Test Case
+//  Input : Marvellous Python   Output : nohtyP suollevraM
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////

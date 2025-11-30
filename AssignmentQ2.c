@@ -1,23 +1,41 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : StrCpyX
+// Description  : Remove the Whilte space from given String and copied it into another
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 30/11/2025
+//
+////////////////////////////////////////////////////////////////////////////////////////
 
-void Display()
+void StrCpyX(char *str, char *dest)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    while(*str != '\0')
     {
-        printf("Marvellous\n");
+        if(*str != ' ')
+        {
+            *dest = *str;
+            dest++;
+        }
+        str++;
     }
+    *dest = '\0';
 }
+
 int main()
 {
-    Display();
+    char Arr[30] = "Marvel lous Pyth on";
+    char Brr[30];
+
+    StrCpyX(Arr, Brr);
+
+    printf("%s\n",Brr);
 
     return 0;
 }
+////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Input : Marvel lous Pyth on   Output : MarvellousPython
+//
+////////////////////////////////////////////////////////////////////////////////////////

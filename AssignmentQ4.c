@@ -1,50 +1,45 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : StrCpySmall
+// Description  : Small the Given String And copy it into Another string
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 30/11/2025
+//
+////////////////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+void StrCpySmall(char *str, char *dest)
 {
-    if((iNo % 5) == 0)
+    while(*str != '\0')
     {
-        return true;
+        if(*str >= 'A' && *str <= 'Z')
+        {
+            *dest = *str + 32;
+        }
+        else
+        {
+            *dest = *str;
+        }
+        str++;
+        dest++;
     }
-    else
-    {
-        return false;
-    }
+    *dest = '\0';
 }
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    char Arr[30] = "MARVELLOUS PYTHON 2";
+    char Brr[30];
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    StrCpySmall(Arr, Brr);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("%s\n",Brr);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+//  Input : MARVELLOUS PYTHON 2 Output : marvellous python 2
 //
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////

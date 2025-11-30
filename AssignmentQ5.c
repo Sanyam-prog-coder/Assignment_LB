@@ -1,26 +1,49 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : StrCpyToggle
+// Description  : Toggle the Given String And copy it into Another string
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 30/11/2025
+//
+////////////////////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void StrCpyToggle(char *str, char *dest)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    while(*str != '\0')
     {
-        printf("*\t\n");
+        if(*str >= 'A' && *str <= 'Z')
+        {
+            *dest = *str + 32;
+        }
+        else if(*str >= 'a' && *str <= 'z')
+        {
+            *dest = *str - 32;
+        }
+        else
+        {
+            *dest = *str;
+        }
+        str++;
+        dest++;
     }
+    *dest = '\0';
 }
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    char Arr[30] = "MarvellouS PythON 2";
+    char Brr[30];
 
-    Accept(iValue);
+    StrCpyToggle(Arr, Brr);
+
+    printf("%s\n",Brr);
+
     return 0;
 }
+////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Input : MarvellouS PythON 2 Output : mARVELLOUs pYTHon 2
+//
+////////////////////////////////////////////////////////////////////////////////////////
