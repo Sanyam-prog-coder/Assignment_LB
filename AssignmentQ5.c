@@ -1,49 +1,54 @@
 #include<stdio.h>
 
-////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 //
-// Function     : StrCpyToggle
-// Description  : Toggle the Given String And copy it into Another string
+// Function     : StrRevX
+// Description  : Accept String from user and Reverse it
 // Auther       : Sanyam BhupendraKumar Ravne
-// Date         : 30/11/2025
+// Date         : 29/11/2025
 //
-////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 
-void StrCpyToggle(char *str, char *dest)
+void StrRevX(char *str)
 {
-    while(*str != '\0')
+    char *Start = str;
+    char *End = str;
+    char temp = '\0';
+
+    while(*End != '\0')
     {
-        if(*str >= 'A' && *str <= 'Z')
-        {
-            *dest = *str + 32;
-        }
-        else if(*str >= 'a' && *str <= 'z')
-        {
-            *dest = *str - 32;
-        }
-        else
-        {
-            *dest = *str;
-        }
-        str++;
-        dest++;
+        End++;
     }
-    *dest = '\0';
+    
+    End--;
+
+    while(Start < End)
+    {
+        temp = *Start;
+        *Start = *End;
+        *End = temp;
+
+        Start++;
+        End--;
+    }
 }
 
 int main()
 {
-    char Arr[30] = "MarvellouS PythON 2";
-    char Brr[30];
+    char Arr[20];
 
-    StrCpyToggle(Arr, Brr);
+    printf("Enter String : ");
+    scanf("%[^'\n']s", Arr);
 
-    printf("%s\n",Brr);
+    StrRevX(Arr);
+
+    printf("MOdified String iS : %s",Arr);
 
     return 0;
 }
-////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 //
-//  Input : MarvellouS PythON 2 Output : mARVELLOUs pYTHon 2
+// Input : Sanyam   Output : maynaS
+// Input : eye      Output : eye
 //
-////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////

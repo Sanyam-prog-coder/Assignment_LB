@@ -1,41 +1,50 @@
 #include<stdio.h>
 
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function     : StrCpyX
-// Description  : Remove the Whilte space from given String and copied it into another
+// Function     : CountChar
+// Description  : Accepet String & character from user and Count the character
 // Auther       : Sanyam BhupendraKumar Ravne
-// Date         : 30/11/2025
+// Date         : 29/11/2025
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
-void StrCpyX(char *str, char *dest)
+int CountChar(char *str, char Ch)
 {
+    int iCount = 0;
+
     while(*str != '\0')
     {
-        if(*str != ' ')
+        if(*str == Ch)
         {
-            *dest = *str;
-            dest++;
+            iCount++;
         }
         str++;
     }
-    *dest = '\0';
+    return iCount;
 }
 
 int main()
 {
-    char Arr[30] = "Marvel lous Pyth on";
-    char Brr[30];
+    char Arr[20];
+    char cValue = 0;
+    int iRet = 0;
+    
+    printf("Enter String : ");
+    scanf("%[^'\n']s",&Arr);
 
-    StrCpyX(Arr, Brr);
+    printf("Enter the Character : ");
+    scanf(" %c",&cValue);
 
-    printf("%s\n",Brr);
+    iRet = CountChar(Arr, cValue);
+
+    printf("Character frequency is %d",iRet);
 
     return 0;
 }
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Input : Marvel lous Pyth on   Output : MarvellousPython
+// Input : Marvellous Multi OS   Input : M   Output : Frequency 2
+// Input : Marvellous Multi OS   Input : k   Output : Frequency 0
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////

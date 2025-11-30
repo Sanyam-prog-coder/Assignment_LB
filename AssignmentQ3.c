@@ -1,45 +1,51 @@
 #include<stdio.h>
 
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function     : StrCpyCap
-// Description  : Capital the Given String And copy it into Another string
+// Function     : FirstChar
+// Description  : Accepet String & character from user and Return of First Occurance of Ch
 // Auther       : Sanyam BhupendraKumar Ravne
-// Date         : 30/11/2025
+// Date         : 29/11/2025
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
-void StrCpyCap(char *str, char *dest)
+int FirstChar(char *str, char Ch)
 {
+    int index = 0;
+
     while(*str != '\0')
     {
-        if(*str >= 'a' && *str <= 'z')
+        if(*str == Ch)
         {
-            *dest = *str - 32;
-        }
-        else
-        {
-            *dest = *str;
+            return index;
         }
         str++;
-        dest++;
+        index++;
     }
-    *dest = '\0';
+    return -1;
 }
 
 int main()
 {
-    char Arr[30] = "marvellous python 2";
-    char Brr[30];
+    char Arr[20];
+    char cValue = 0;
+    int iRet = 0;
+    
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
 
-    StrCpyCap(Arr, Brr);
+    printf("Enter the Character : ");
+    scanf(" %c",&cValue);
 
-    printf("%s\n",Brr);
+    iRet = FirstChar(Arr, cValue);
+
+    printf("Character Location is %d",iRet);
 
     return 0;
 }
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Input : marvellous python 2 Output : MARVELLOUS PYTHON 2
+// Input : Marvellous Multi OS   Input : W   Output : Location -1
+// Input : Marvellous Multi OS   Input : e   Output : location  4
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////

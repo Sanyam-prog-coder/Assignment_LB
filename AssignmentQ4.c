@@ -1,45 +1,53 @@
 #include<stdio.h>
 
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function     : StrCpySmall
-// Description  : Small the Given String And copy it into Another string
+// Function     : Lastchar
+// Description  : Accepet String & character from user and Return of Last Occurance of Ch
 // Auther       : Sanyam BhupendraKumar Ravne
-// Date         : 30/11/2025
+// Date         : 29/11/2025
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
-void StrCpySmall(char *str, char *dest)
+int LastChar(char *str, char Ch)
 {
+    int index = 0;
+    int iLastindex = -1;
+
     while(*str != '\0')
     {
-        if(*str >= 'A' && *str <= 'Z')
+        if(*str == Ch)
         {
-            *dest = *str + 32;
-        }
-        else
-        {
-            *dest = *str;
+            iLastindex = index;
         }
         str++;
-        dest++;
+        index++;
     }
-    *dest = '\0';
+    return iLastindex;
 }
 
 int main()
 {
-    char Arr[30] = "MARVELLOUS PYTHON 2";
-    char Brr[30];
+    char Arr[20];
+    char cValue = 0;
+    int iRet = 0;
+    
+    printf("Enter String : ");
+    scanf("%[^'\n']s",Arr);
 
-    StrCpySmall(Arr, Brr);
+    printf("Enter the Character : ");
+    scanf(" %c",&cValue);
 
-    printf("%s\n",Brr);
+    iRet = LastChar(Arr, cValue);
+
+    printf("Character Location is %d",iRet);
 
     return 0;
 }
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Input : MARVELLOUS PYTHON 2 Output : marvellous python 2
+// Input : Marvellous Multi OS   Input : M   Output : Location 11
+// Input : Marvellous Multi OS   Input : W   Output : Location -1
+// Input : Marvellous Multi OS   Input : e   Output : location  4
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////

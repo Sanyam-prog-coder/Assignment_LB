@@ -1,44 +1,56 @@
 #include<stdio.h>
+#include<stdbool.h>
 
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function     : StrCpyRev
-// Description  : Reverse Given String and Copy int into Another string
+// Function     : CheckChar
+// Description  : Accepet String & character from user and Check the Ch is Present or Not
 // Auther       : Sanyam BhupendraKumar Ravne
-// Date         : 30/11/2025
+// Date         : 29/11/2025
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
-void StrCpyRev(char *str, char *dest)
+bool CheckChar(char *str, char Ch)
 {
-    int length = 0, iCnt = 0;
-
-    while(str[length] != 0)
+    while(*str != '\0')
     {
-        length++;
+        if(*str == Ch)
+        {
+            return true;
+        }
+        str++;
     }
-
-    for(iCnt = 0; iCnt < length; iCnt++)
-    {
-        dest[iCnt] = str[length - iCnt - 1];
-    }
-
-    dest[length] = '\0';
+    return false;
 }
 
 int main()
 {
-    char Arr[30] = "Marvellous Python";
-    char Brr[30];
+    char Arr[20];
+    char cValue = 0;
+    bool bRet = false;
+    
+    printf("Enter String : ");
+    scanf("%[^'\n']s",&cValue);
 
-    StrCpyRev(Arr, Brr);
+    printf("Enter the Character : ");
+    scanf(" %c",&cValue);
 
-    printf("%s\n",Brr);
+    bRet = CheckChar(Arr, cValue);
+
+    if(bRet == true)
+    {
+        printf("Character Found");
+    }
+    else
+    {
+        printf("Character is not found");
+    }
 
     return 0;
 }
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Input : Marvellous Python   Output : nohtyP suollevraM
+// Input : Marvellous   Input : e   Output : Character Found
+// Input : Marvellous   Input : m   Output : Character is not Found
 //
-////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
