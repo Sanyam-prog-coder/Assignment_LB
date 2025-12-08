@@ -1,23 +1,38 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+//
+// Function     : Sum
+// Description  : Accept Number from user and Summation  of All
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 08/12/2025
+//
+///////////////////////////////////////////////////////////////////////
 
-void Display()
+int Sum( int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    if(iNo == 0)
     {
-        printf("Marvellous\n");
+        return 0;
     }
+
+    return(iNo % 10) + Sum(iNo / 10);
 }
 int main()
 {
-    Display();
+    int iValue = 0, iRet = 0;
+
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
+
+    iRet = Sum(iValue);
+
+    printf("%d",iRet);
 
     return 0;
 }
+///////////////////////////////////////////////////////////////////////
+//
+// Input : 879      Output : 24
+//
+///////////////////////////////////////////////////////////////////////

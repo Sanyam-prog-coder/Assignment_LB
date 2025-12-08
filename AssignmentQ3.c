@@ -1,24 +1,39 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : Strlen
+// Description  : Accept string from user and count char in it
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 08/12/2025
+//
+///////////////////////////////////////////////////////////////////////////////////////////
 
-void Display()
+int Strlen(char * str)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+     if(*str == '\0')          
     {
-        printf("%d\n",icnt);
-        icnt--;
+        return 0;
     }
+
+    return 1 + Strlen(str + 1);
 }
 int main()
 {
-    Display();
+    int iRet = 0;
+    char Arr[20];
+
+    printf("Enter The String : ");
+    scanf("%s",Arr);
+
+    iRet = Strlen(Arr);
+
+    printf("%d",iRet);
 
     return 0;
 }
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Input : Hello    Output  : 5
+//
+///////////////////////////////////////////////////////////////////////////////////////////

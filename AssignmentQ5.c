@@ -1,26 +1,39 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : Mult 
+// Description  : Accept Number from user and return product of digit Recursive
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 08/12/2025
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+int Mult(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    if(iNo == 0)
     {
-        printf("*\t\n");
+        return 1;
     }
+
+    return (iNo % 10) * Mult(iNo / 10);
 }
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    int iValue = 0, iRet = 0;
 
-    Accept(iValue);
+    printf("Enter number : ");
+    scanf("%d",
+        &iValue);
+
+    iRet = Mult(iValue);
+
+    printf("Product of Digits is : %d",iRet);
+
     return 0;
 }
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Input : 523      Ouput : 30
+//
+///////////////////////////////////////////////////////////////////////////////////////////////

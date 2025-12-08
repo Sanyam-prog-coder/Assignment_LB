@@ -1,50 +1,40 @@
 #include<stdio.h>
-#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function     : Fact
+// Description  : Recursive program Which Accept Number from user and return as factorial
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 08/12/2025
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+int Fact(int iNO)
 {
-    if((iNo % 5) == 0)
+    if(iNO <= 1)
     {
-        return true;
+        return 1;
     }
     else
     {
-        return false;
+        return iNO * Fact(iNO -1);
     }
 }
-
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    int iValue = 0, iRet = 0;
 
-    printf("Enter number :");
+    printf("Enter Number : ");
     scanf("%d",&iValue);
 
-    bRet = Check(iValue);
+    iRet = Fact(iValue);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("Factorial is : %d", iRet);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Input : 25    Output : True
-// Input : 28    Output : False
+// Input : 5    Output : 120
 //
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,59 +1,43 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function     : Display
+// Description  : Display the pattern by Recurtion
+// Auther       : Sanyam Bhupendrakumar Ravne
+// Date         : 06/12/2025
+//
+/////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+void Display(int iNo)
 {
-    int iAns = 0;           // To Store the Result
-
-    if(iNo2 == 0)           // Updater
+    if(iNo <= 0)
     {
-        return -1;
+        return; 
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
 
-///////////////////////////////////////////////////////////////
-//
-//  Entry Point Function For The Application
-//
-///////////////////////////////////////////////////////////////
+    printf("%d\t", iNo);
 
+    if(iNo > 1)
+    {
+        printf(" *\t ");
+    }
+
+    Display(iNo - 1);
+}
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    int iValue = 0;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-    printf("Divison is %d",iRet);
+    Display(iValue);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
+}
+/////////////////////////////////////////////////////////////////
 //
-//  Test Case
+// Input : 5    Output : 5  *   4   *   3   *   2   *   1   
 //
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
