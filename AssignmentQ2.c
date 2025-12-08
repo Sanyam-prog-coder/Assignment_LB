@@ -1,23 +1,41 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+//
+// Function     : Display
+// Description  : Display the pattern by Recurtion
+// Auther       : Sanyam Bhupendrakumar Ravne
+// Date         : 06/12/2025
+//
+/////////////////////////////////////////////////////////////////
 
-void Display()
+void Display(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    static int iCnt = 1;
+
+    if(iCnt > iNo)
     {
-        printf("Marvellous\n");
+        return;
     }
+
+    printf("%d\t",iCnt);
+    iCnt++;
+
+    Display(iNo);
 }
 int main()
 {
-    Display();
+    int iValue = 0;
+
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
+
+    Display(iValue);
 
     return 0;
 }
+/////////////////////////////////////////////////////////////////
+//
+// Input : 5    Output : 1  2   3   4   5
+//
+/////////////////////////////////////////////////////////////////

@@ -1,26 +1,43 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Function     : Display
+// Description  : Display the pattern by Recurtion
+// Auther       : Sanyam BhupendraKumar Ravne
+// Date         : 08/12/2025
+//
+////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+void Display(int iNo)
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    static char iCnt = 1;
+    static char c = 'a';
+
+    if(iCnt > iNo)
     {
-        printf("*\t\n");
+        return;
     }
+
+    printf("%c\t",c);
+    iCnt++;
+    c++;
+
+    Display(iNo);
 }
 int main()
 {
     int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
 
-    Accept(iValue);
+    printf("Enter Number : ");
+    scanf("%d", &iValue);
+
+    Display(iValue);
+
     return 0;
 }
+////////////////////////////////////////////////////////////////////
+//
+// Input : 5         Output : a  b   c   d   e
+//
+////////////////////////////////////////////////////////////////////

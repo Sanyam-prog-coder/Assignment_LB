@@ -1,24 +1,40 @@
 #include<stdio.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+//
+// Function     : Display
+// Description  : Display the pattern by Recurtion
+// Auther       : Sanyam Bhupendrakumar Ravne
+// Date         : 06/12/2025
+//
+/////////////////////////////////////////////////////////////////
 
-void Display()
+void Display(int iNo)
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    if(iNo == 0)      
     {
-        printf("%d\n",icnt);
-        icnt--;
+        return;
     }
+
+    printf("%d\t", iNo);
+
+    Display(iNo - 1);      
 }
+
 int main()
 {
-    Display();
+    int iValue = 0;
+
+    printf("Enter Number : ");
+    scanf("%d", &iValue);
+
+    Display(iValue);
 
     return 0;
 }
+
+/////////////////////////////////////////////////////////////////
+//
+// Input : 5    Output : 5  4   3   2   1
+//
+/////////////////////////////////////////////////////////////////
