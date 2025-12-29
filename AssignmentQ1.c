@@ -1,59 +1,99 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function : Structure
+// Description  : To represent real world entity using Multi data field
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+#pragma pack(1)
+
+struct node
 {
-    int iAns = 0;           // To Store the Result
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
 
-    if(iNo2 == 0)           // Updater
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To insert Entity in Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return -1;
+        *head = newn; 
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
+    else
+    {
+        newn->next = *head;
+        *head = newn;
+    }
+}
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 //
-//  Entry Point Function For The Application
+// Function : DisplayOdd
+// Description  : To Display Odd Element 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
 //
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+void DisplayOdd(PNODE head)
+{
+    while(head != NULL)
+    {
+        if((head->data % 2) != 0)
+        {
+            printf("%d\t",head->data);
+        }
+        head = head->next;
+    }
+    printf("\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date     : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    PNODE first = NULL;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    InsertFirst(&first, 56);
+    InsertFirst(&first, 41);
+    InsertFirst(&first, 32);
+    InsertFirst(&first, 21);
+    InsertFirst(&first, 11);
+    InsertFirst(&first, 06);
 
-    printf("Divison is %d",iRet);
-
+    printf("Odd Elements : ");
+    DisplayOdd(first);
+    
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
-//
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+}
+/*
+    Output  : 11    21    41
+*/

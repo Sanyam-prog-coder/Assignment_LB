@@ -1,50 +1,102 @@
 #include<stdio.h>
-#include<stdbool.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Structure
+// Description  : To represent real world entity using Multi data field
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+#pragma pack(1)
+
+struct node
 {
-    if((iNo % 5) == 0)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To insert Entity in Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return true;
+        *head = newn; 
     }
     else
     {
-        return false;
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : CountGreater
+// Description  : To Count Greater in Given Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+int CountGreater(PNODE head, int no)
+{
+    int iCount = 0;
+     
+    while(head != NULL)
+    {
+        if(head->data > no)
+        {
+            iCount++;
+        }
+        head = head->next;
+    }
+    return iCount;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date     : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    PNODE first = NULL;
+    int iRet = 0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    InsertFirst(&first, 56);
+    InsertFirst(&first, 11);
+    InsertFirst(&first, 32);
+    InsertFirst(&first, 21);
+    InsertFirst(&first, 11);
+    InsertFirst(&first, 06);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
-
+    iRet = CountGreater(first, 11);
+    printf("Count Greater than in Linked List : %d",iRet);
+    
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/*
+    Output  : Count Greater than in Linked List : 3
+*/
