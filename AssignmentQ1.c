@@ -1,59 +1,97 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function : Structure
+// Description  : To represent real world entity using Multi data field 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+struct node
 {
-    int iAns = 0;           // To Store the Result
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
 
-    if(iNo2 == 0)           // Updater
+//////////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To insert Entity in Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return -1;
+        *head = newn;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
+    else
+    {
+        newn->next = *head;
+        *head = newn;
+    }
+}
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 //
-//  Entry Point Function For The Application
+// Function : SearchElement
+// Description  : To search the Given Element Present or Not 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
 //
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+bool SearchElement(PNODE head, int no)
+{
+    while(head != NULL)
+    {
+        if(head->data == no)
+        {
+            return true;
+        }
+        head = head->next;
+    }
+    return false;
+}
+
+//////////////////////////////////////////////////////////////////////////
+//
+// Function : Main 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    PNODE first = NULL;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    InsertFirst(&first, 51);
+    InsertFirst(&first, 45);
+    InsertFirst(&first, 39);
+    InsertFirst(&first, 25);
+    InsertFirst(&first, 11);
 
-    printf("Divison is %d",iRet);
+    printf("Search : %s\n", SearchElement(first, 11) ? "Found" : "Not Found");
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
-//
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+}
+/*
+    Input : 11      Output : Found
+    Input : 29      Output : Not Found      
+*/
