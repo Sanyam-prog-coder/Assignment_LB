@@ -1,24 +1,96 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Structure
+// Description  : To represent real world entity using Multi data field
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
-void Display()
+struct node
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To insert Entity in Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        printf("%d\n",icnt);
-        icnt--;
+        *head = newn;
+    }
+    else
+    {
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : IsEmpty
+// Description  : To Display Odd Element 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+bool IsEmpty(PNODE Head)
+{
+    if(Head == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date     : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
 int main()
 {
-    Display();
+    PNODE first = NULL;
+
+    InsertFirst(&first, 12);
+    InsertFirst(&first, 02);
+    InsertFirst(&first, 18);
+    InsertFirst(&first, 15);
+    InsertFirst(&first, 21);
+    InsertFirst(&first, 11);
+
+    printf("Is List Empty %s\n", IsEmpty(first) ? "Yes" : "No");
 
     return 0;
 }
+/*
+Is List Empty No
+*/

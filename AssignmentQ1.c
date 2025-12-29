@@ -1,59 +1,97 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Function : Structure
+// Description  : To represent real world entity using Multi data field
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+struct node
 {
-    int iAns = 0;           // To Store the Result
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
 
-    if(iNo2 == 0)           // Updater
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To insert Entity in Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return -1;
+        *head = newn;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
+    else
+    {
+        newn->next = *head;
+        *head = newn;
+    }
+}
 
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 //
-//  Entry Point Function For The Application
+// Function : DisplayGreater
+// Description  : To Display Odd Element 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
 //
-///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+void DisplayGreater(PNODE Head, int no)
+{
+    while(Head != NULL)
+    {
+        if(Head->data > no)
+        {
+            printf("%d\t", Head->data);
+        }
+        Head = Head->next;
+    }
+    printf("\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date     : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    PNODE first = NULL;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    InsertFirst(&first, 12);
+    InsertFirst(&first, 02);
+    InsertFirst(&first, 18);
+    InsertFirst(&first, 15);
+    InsertFirst(&first, 21);
+    InsertFirst(&first, 11);
 
-    printf("Divison is %d",iRet);
+    printf("Element Greater Than given number %d : ");
+    DisplayGreater(first, 11);
 
     return 0;
-}   // End of Main
-
-///////////////////////////////////////////////////////////////
-//
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+}
+/*
+Element Greater Than given number 11 : 21       15      18      12
+*/

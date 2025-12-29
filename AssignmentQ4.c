@@ -1,50 +1,118 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Structure
+// Description  : To represent real world entity using Multi data field
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+struct node
 {
-    if((iNo % 5) == 0)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To insert Entity in Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return true;
+        *head = newn;
     }
     else
     {
-        return false;
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : ReplaceNegative
+// Description  : To Display Odd Element 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+void ReplaceNegative(PNODE Head)
+{
+    while(Head != NULL)
+    {
+        if(Head->data < 0)
+        {
+            Head->data = 0;
+        }
+        Head = Head->next;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Display
+// Description  : To Display Element 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
+
+void Display(PNODE Head)
+{
+    while(Head != NULL)
+    {
+        printf(" | %d |-> ", Head->data);
+        Head = Head->next;
+    }
+    printf("NULL\n");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date     : 29/12/2025
+//
+//////////////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    PNODE first = NULL;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
-
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    InsertFirst(&first, 12);
+    InsertFirst(&first, 02);
+    InsertFirst(&first, -18);
+    InsertFirst(&first, 15);
+    InsertFirst(&first, -21);
+    InsertFirst(&first, 11);
+    
+    ReplaceNegative(first);
+    printf("After Replacing Negative Numbers:\n");
+    Display(first);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/*
+After Replacing Negative Numbers:
+| 11 |->  | 0 |->  | 15 |->  | 0 |->  | 2 |->  | 12 |-> NULL
+*/
