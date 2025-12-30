@@ -1,59 +1,117 @@
-///////////////////////////////////////////////////////////////
-//
-// Required Header File
-//
-///////////////////////////////////////////////////////////////
-
-
 #include<stdio.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 //
-// Function Name :  DivisonofTwoNumber
-// Description :    It Use To Perform Division
-// Input :          Int, Int
-// Output :         Int
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           16/10/2025
-///////////////////////////////////////////////////////////////
+// Structure Defination
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2023
+//
+////////////////////////////////////////////////////////////////////
 
-int Divide (
-                int iNo1,   // First Input
-                int iNo2    // Second Input
-           )
+struct node
 {
-    int iAns = 0;           // To Store the Result
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
 
-    if(iNo2 == 0)           // Updater
+////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To Insert Elememnt in Linked List
+// Auther : Sanyam Bhupendrakumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return -1;
+        *head = newn;
     }
-    iAns = iNo1/iNo2;       // Buasiness Logic
-    return iAns;
-}   // End of Division
+    else
+    {
+        newn->next = *head;
+        *head = newn;
+    }
+}
 
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 //
-//  Entry Point Function For The Application
+// Function : Display
+// Description  : To Display The Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
 //
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+void Display(PNODE head)
+{
+    while(head != NULL)
+    {
+        printf("| %d |->", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : DisplayReverse
+// Description : To display Linked List In Reverse
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void DisplayReverse(PNODE head)
+{
+    if(head == NULL)
+    {
+        return;
+    }
+    DisplayReverse(head->next);
+    printf("| %d |->",head->data);
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date  : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue1 = 15, iValue2 = 5;  // To Store Input
-    int iRet = 0;                   // To Store The Result
+    PNODE first = NULL;
 
-    iRet = Divide(iValue1,iValue2); // Method Call
+    InsertFirst(&first, 121);
+    InsertFirst(&first, 111);
+    InsertFirst(&first, 101);
+    InsertFirst(&first, 51);
+    InsertFirst(&first, 21);
+    InsertFirst(&first, 11);
 
-    printf("Divison is %d",iRet);
+    Display(first);
+
+    printf("Reverse of Linked List is : ");
+    DisplayReverse(first);
 
     return 0;
-}   // End of Main
+}
+/*
 
-///////////////////////////////////////////////////////////////
-//
-//  Test Case
-//
-// Input : 15       Iutput : 5      Output : 3
-//
-///////////////////////////////////////////////////////////////
+| 11 |->| 21 |->| 51 |->| 101 |->| 111 |->| 121 |->NULL
+Reverse of Linked List is : | 121 |->| 111 |->| 101 |->| 51 |->| 21 |->| 11 |->
+
+*/
