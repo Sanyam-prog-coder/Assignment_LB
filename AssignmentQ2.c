@@ -1,23 +1,122 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print Marvellous Five Times 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Structure Defination
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2023
+//
+////////////////////////////////////////////////////////////////////
 
-void Display()
+struct node
 {
-    int icnt = 0;
-    for(icnt = 1; icnt <= 5; icnt++)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To Insert Elememnt in Linked List
+// Auther : Sanyam Bhupendrakumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        printf("Marvellous\n");
+        *head = newn;
+    }
+    else
+    {
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Display
+// Description  : To Display The Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void Display(PNODE head)
+{
+    while(head != NULL)
+    {
+        printf("| %d |->", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : ReplaceOdd
+// Description  : To Replace Odd into 0 Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void ReplaceOdd(PPNODE head)
+{
+    PNODE temp = *head;
+
+    while(temp != NULL)
+    {
+        if(temp->data % 2 != 0)
+        {
+            temp->data = 0;
+        }
+        temp = temp->next;
+    }
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date  : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
 int main()
 {
-    Display();
+    PNODE first = NULL;
+
+    InsertFirst(&first, 36);
+    InsertFirst(&first, 68);
+    InsertFirst(&first, 41);
+    InsertFirst(&first, 14);
+    InsertFirst(&first, 61);
+    InsertFirst(&first, 15);
+
+    Display(first);
+
+    ReplaceOdd(&first);
+    printf("\nAfter ReplaceOdd:\n");
+    Display(first);
 
     return 0;
 }
+/*
+| 15 |->| 61 |->| 14 |->| 41 |->| 68 |->| 36 |->NULL
+
+After ReplaceOdd:
+| 0 |->| 0 |->| 14 |->| 0 |->| 68 |->| 36 |->NULL
+*/

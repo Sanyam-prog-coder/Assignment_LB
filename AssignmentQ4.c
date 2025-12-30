@@ -1,50 +1,123 @@
 #include<stdio.h>
-#include<stdbool.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Structure Defination
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2023
+//
+////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+struct node
 {
-    if((iNo % 5) == 0)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To Insert Elememnt in Linked List
+// Auther : Sanyam Bhupendrakumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return true;
+        *head = newn;
     }
     else
     {
-        return false;
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Display
+// Description  : To Display The Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void Display(PNODE head)
+{
+    while(head != NULL)
+    {
+        printf("| %d |->", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : DisplayEvenPosition
+// Description  : To Display Even Position from Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void DisplayEvenPosition(PNODE head)
+{
+    int pos = 1;
+
+    while(head != NULL)
+    {
+        if(pos % 2 == 0)
+        {
+            printf("%d ", head->data);
+        }
+        head = head->next;
+        pos++;
+    }
+    printf("\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date  : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    PNODE first = NULL;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    InsertFirst(&first, 36);
+    InsertFirst(&first, 68);
+    InsertFirst(&first, 41);
+    InsertFirst(&first, 14);
+    InsertFirst(&first, 61);
+    InsertFirst(&first, 15);
 
-    bRet = Check(iValue);
+    Display(first);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("\nElements at Even Positions:\n");
+    DisplayEvenPosition(first);
 
     return 0;
 }
+/*
+| 15 |->| 61 |->| 14 |->| 41 |->| 68 |->| 36 |->NULL
 
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+Elements at Even Positions:
+61 41 36
+*/

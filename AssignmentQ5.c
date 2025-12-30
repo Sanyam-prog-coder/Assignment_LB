@@ -1,26 +1,123 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Accept
-// Description :    Accept number From user & print * on screen
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Structure Defination
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2023
+//
+////////////////////////////////////////////////////////////////////
 
-void Accept(int iNo)
+struct node
 {
-    int icnt = 0;
-    for(icnt = 1; icnt<= iNo; icnt++)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To Insert Elememnt in Linked List
+// Auther : Sanyam Bhupendrakumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNODE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        printf("*\t\n");
+        *head = newn;
+    }
+    else
+    {
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Display
+// Description  : To Display The Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void Display(PNODE head)
+{
+    while(head != NULL)
+    {
+        printf("| %d |->", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : DisplayOddPosition
+// Description  : To Display Even Position from Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void DisplayOddPosition(PNODE head)
+{
+    int pos = 1;
+
+    while(head != NULL)
+    {
+        if(pos % 2 != 0)
+        {
+            printf("%d ", head->data);
+        }
+        head = head->next;
+        pos++;
+    }
+    printf("\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date  : 30/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
 int main()
 {
-    int iValue = 0;
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
+    PNODE first = NULL;
 
-    Accept(iValue);
+    InsertFirst(&first, 36);
+    InsertFirst(&first, 68);
+    InsertFirst(&first, 41);
+    InsertFirst(&first, 14);
+    InsertFirst(&first, 61);
+    InsertFirst(&first, 15);
+
+    Display(first);
+
+    printf("\nElements at Odd Positions:\n");
+    DisplayOddPosition(first);
+
     return 0;
 }
+/*
+| 15 |->| 61 |->| 14 |->| 41 |->| 68 |->| 36 |->NULL
+
+Elements at Odd Positions:
+15 14 68
+*/
