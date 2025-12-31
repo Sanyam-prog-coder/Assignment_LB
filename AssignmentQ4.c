@@ -1,50 +1,122 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<stdbool.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Structure Defination
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2023
+//
+////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+struct node
 {
-    if((iNo % 5) == 0)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNDOE;
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To Insert Elememnt in Linked List
+// Auther : Sanyam Bhupendrakumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void InsertFirst(PPNDOE head, int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return true;
+        *head = newn;
     }
     else
     {
-        return false;
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Display
+// Description  : To Display The Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void Display(PNODE head)
+{
+    while(head != NULL)
+    {
+        printf("| %d |->", head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : CountDivByFive
+// Description  : Count Division By Five Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+int CountDivByFive(PNODE head)
+{
+    int iCount = 0;
+
+    while(head != NULL)
+    {
+        if(head->data % 5 == 0)
+        {
+            iCount++;
+        }
+        head = head->next;
+    }
+    return iCount;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date  : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    PNODE first = NULL;
+    int iRet = 0;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    InsertFirst(&first, 132);
+    InsertFirst(&first, 98);
+    InsertFirst(&first, 81);
+    InsertFirst(&first, 36);
+    InsertFirst(&first, 25);
+    InsertFirst(&first, 11);
 
-    bRet = Check(iValue);
-
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    Display(first);
+    
+    iRet = CountDivByFive(first);
+    printf("Count Divisible By 5 Are : %d",iRet);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/*
+| 11 |->| 25 |->| 36 |->| 81 |->| 98 |->| 132 |->NULL
+Count Divisible By 5 Are : 1
+*/
