@@ -1,50 +1,120 @@
 #include<stdio.h>
-#include<stdbool.h>
+#include<stdlib.h>
 
-///////////////////////////////////////////////////////////////////////
-// Function Name :  Check
-// Description :    Accept one number & check Diviorsible 5 or not
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           19/10/2025
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Structure Defination
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2023
+//
+////////////////////////////////////////////////////////////////////
 
-bool Check( int iNo)
+struct node
 {
-    if((iNo % 5) == 0)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To Insert Elememnt in Linked List
+// Auther : Sanyam Bhupendrakumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void InsetFirst(PPNODE head,int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        return true;
+        *head = newn;
     }
     else
     {
-        return false;
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Display
+// Description  : To Display The Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void Display(PNODE head)
+{
+    while(head != NULL)
+    {
+        printf("| %d |->",head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : DisplayAlternate
+// Description  : To Display Alternate element Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void DisplayAlternate(PNODE head)
+{
+    int flag = 1;
+
+    while(head != NULL)
+    {
+        if(flag == 1)
+        {
+            printf("%d ",head->data);
+        }
+        flag = !flag;
+        head = head->next;
+    }
+    printf("\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date  : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
 
 int main()
 {
-    int iValue = 0;
-    bool bRet = false;
+    PNODE first = NULL;
 
-    printf("Enter number :");
-    scanf("%d",&iValue);
+    InsetFirst(&first, 11);
+    InsetFirst(&first, 25);
+    InsetFirst(&first, 54);
+    InsetFirst(&first, 25);
+    InsetFirst(&first, 65);
 
-    bRet = Check(iValue);
+    Display(first);
 
-    if(bRet == true)
-    {
-        printf("Divisible by 5\n");
-    }
-    else
-    {
-        printf("Not Divisible by 5\n");
-    }
+    printf("Alternate Node from linked lise : ");
+    DisplayAlternate(first);
 
     return 0;
 }
-
-///////////////////////////////////////////////////////////////////////
-//
-// Input : 25    Output : True
-// Input : 28    Output : False
-//
-///////////////////////////////////////////////////////////////////////
+/*
+| 65 |->| 25 |->| 54 |->| 25 |->| 11 |->NULL
+Alternate Node from linked lise : 65 54 11
+*/

@@ -1,24 +1,132 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
 
-///////////////////////////////////////////////////////////
-// Function Name :  Display
-// Description :    print 5 to 1 number on screen 
-// Auther :         Sanyam Bhupendrakumar Ravne
-// Date :           18/10/2025
-///////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//
+// Structure Defination
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2023
+//
+////////////////////////////////////////////////////////////////////
 
-void Display()
+struct node
 {
-    int icnt = 5;
-    while(icnt >= 1)
+    int data;
+    struct node* next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : InsertFirst
+// Description  : To Insert Elememnt in Linked List
+// Auther : Sanyam Bhupendrakumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void InsetFirst(PPNODE head,int no)
+{
+    PNODE newn = (PNODE)malloc(sizeof(NODE));
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*head == NULL)
     {
-        printf("%d\n",icnt);
-        icnt--;
+        *head = newn;
+    }
+    else
+    {
+        newn->next = *head;
+        *head = newn;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Display
+// Description  : To Display The Linked List
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+void Display(PNODE head)
+{
+    while(head != NULL)
+    {
+        printf("| %d |->",head->data);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : CheckSorted
+// Description  : Cheched sorted Linked List 
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
+bool CheckSorted(PNODE head)
+{
+    if(head == NULL || head->next == NULL)
+    {
+        return true;
+    }
+
+    while(head->next != NULL)
+    {
+        if(head->data > head->next->data)
+        {
+            return false;
+        }
+        head = head->next;
+    }
+    return true;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function : Main
+// Auther   : Sanyam BhupendraKumar Ravne
+// Date  : 31/12/2025
+//
+////////////////////////////////////////////////////////////////////
+
 int main()
 {
-    Display();
+    PNODE first = NULL;
+    bool bRet = false;
+
+    InsetFirst(&first, 11);
+    InsetFirst(&first, 25);
+    InsetFirst(&first, 54);
+    InsetFirst(&first, 25);
+    InsetFirst(&first, 65);
+
+    Display(first);
+
+    bRet = CheckSorted(first);
+
+    if(bRet == true)
+    {
+       printf("\nThe list is sorted in ascending order.\n");
+    }
+    else
+    {
+        printf("\nThe list is NOT sorted in ascending order.\n");
+    }
 
     return 0;
 }
+/*
+| 65 |->| 25 |->| 54 |->| 25 |->| 11 |->NULL
+The list is NOT sorted in ascending order.
+*/
