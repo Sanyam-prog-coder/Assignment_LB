@@ -5,7 +5,7 @@ import java.util.Scanner;
 /// Function    : theatre
 /// Description : Calculate the Book and Free seats 
 /// Auther      : Ravne Sanyam Bhupendrakumar
-/// Date        : 03-Feb-2026
+/// Date        : 03-March-2026
 /// 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
