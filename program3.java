@@ -1,5 +1,14 @@
 import java.util.Scanner;
 
+/////////////////////////////////////////////////////////////////////////////////////
+/// 
+/// Function    : isPathAvailable
+/// Description : Check weather the given path is available or not 
+/// Auther      : Ravne Sanyam Bhupendrkumar
+/// Date        : 05-March-2026
+/// 
+/////////////////////////////////////////////////////////////////////////////////////
+
 class program3
 {
     public static boolean isPathAvailable(int grid[][], int r, int c, int i , int j)
